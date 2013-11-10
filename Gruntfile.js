@@ -134,12 +134,6 @@ module.exports = function(grunt) {
       }
     },
 
-    cdnify: {
-      build: {
-        html: '<%= cfg.frontend_build %>/index.html'
-      }
-    },
-
     ngmin: {
       build: {
         files: [{
@@ -177,7 +171,6 @@ module.exports = function(grunt) {
     'concat',
     'copy',
     'htmlmin',
-    'cdnify',
     'ngmin',
     'cssmin',
     'uglify',
