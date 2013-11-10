@@ -20,6 +20,15 @@ Minimalistic boilerplate that has express server and supports angular.js with ht
 * angular-ui-router
 * angular-bootstrap
 
+## Install
+
+```bash
+git clone https://github.com/tenphi/grunt-express-angular-html5mode-boilerplate.git boilerplate
+cd boilerplate
+npm install --save-dev
+bower install
+```
+
 ## Commands
 `grunt server` - start development server (8080 port by default) and open browser
 
