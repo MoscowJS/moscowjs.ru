@@ -16,6 +16,7 @@ module.exports = function(grunt) {
 
     cfg: config,
 
+    // watch file changes and trigger reload in browser
     watch: {
 
       livereload: {
@@ -32,6 +33,7 @@ module.exports = function(grunt) {
 
     },
 
+    // start express server
     express: {
 
       options: {
@@ -57,6 +59,7 @@ module.exports = function(grunt) {
 
     },
 
+    // open address in browser
     open: {
 
       server: {
@@ -65,6 +68,7 @@ module.exports = function(grunt) {
 
     },
 
+    // delete previous build
     clean: {
 
       build: {
@@ -78,6 +82,7 @@ module.exports = function(grunt) {
 
     },
 
+    // add revision prefix to files
     rev: {
 
       build: {
@@ -92,6 +97,7 @@ module.exports = function(grunt) {
 
     },
 
+    // see `usemin` task
     useminPrepare: {
       html: '<%= cfg.frontend %>/index.html',
       options: {
@@ -100,6 +106,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // concatination preprocessor: creates `concat`, `cssmin`, `copy` tasks,
     usemin: {
       html: ['<%= cfg.frontend_build %>/{,*/}*.html'],
       css: ['<%= cfg.frontend_build %>/styles/*.css'],
@@ -108,6 +115,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // html minification (should has options)
     htmlmin: {
       build: {
         files: [{
@@ -119,6 +127,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // copy files to build dir
     copy: {
       development: {
         files: [{
@@ -134,6 +143,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // angular preprocessor to prevent injecting instances from minifying
     ngmin: {
       build: {
         files: [{
@@ -150,6 +160,7 @@ module.exports = function(grunt) {
   // register tasks
 
   grunt.registerTask('keepalive', function() {
+    // it's needed to keep grunt process alive
     this.async();
   });
 
