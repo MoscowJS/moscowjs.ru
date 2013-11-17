@@ -1,0 +1,142 @@
+<form class="form-horizontal" name="regForm">
+  <div class="form-group">
+    <label class="control-label col-sm-2">Имя</label>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        class="form-control"
+        id="first-name"
+        name="first-name"
+        placeholder="Имя"
+        ng-model="name.first"
+        required
+      />
+    </div>
+    <div class="col-sm-3">
+      <input
+        type="text"
+        class="form-control"
+        id="last-name"
+        name="last-name"
+        placeholder="Фамилия"
+        ng-model="name.last"
+        required
+      />
+    </div>
+  </div>
+  <div class="form-group" ng-class="{'has-error' : regForm.email.$error.email}">
+    <label for="email" class="control-label col-sm-2">E-mail</label>
+    <div class="col-sm-6">
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        placeholder="Адрес электронной почты для связи"
+        ng-model="email"
+        required
+      />
+    </div>
+    
+  </div>
+  <div class="form-group" ng-init="type = 'conferee'">
+    <div class="col-sm-offset-2 col-sm-6">
+      <div class="radio">
+        <label>
+          <input
+            type="radio"
+            name="type"
+            id="type-conferee"
+            value="conferee"
+            ng-model="type"
+            checked
+          />
+          Участник
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input
+            type="radio"
+            name="type"
+            id="type-speaker"
+            value="speaker"
+            ng-model="type"
+          />
+          Докладчик
+        </label>
+      </div>
+    </div>
+  </div>
+  <div ng-show="type == 'speaker'">
+    <div class="form-group">
+      <label for="phone" class="control-label col-sm-2">Телефон</label>
+      <div class="col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          placeholder="Ваш телефон для связи"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="speech-title" class="control-label col-sm-2">Название доклада</label>
+      <div class="col-sm-6">
+        <input
+          type="text"
+          class="form-control"
+          id="speech-title"
+          placeholder="Полное название доклада"
+        />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="speech-description" class="control-label col-sm-2">Описание доклада</label>
+      <div class="col-sm-6">
+        <textarea
+          type="speech-description"
+          class="form-control"
+          id="comment"
+          placeholder="Подробное описание доклада"
+          rows="5"
+        ></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="speech-duration" class="control-label col-sm-2">Примерное чистое время доклада (без времени на вопросы)</label>
+      <div class="col-sm-6">
+        <select
+          class="form-control"
+          id="speech-duration"
+        >
+          <option value="1">1:00</option>
+          <option value="1.5">1:30</option>
+          <option value="2">2:00</option>
+          <option value="2.5">2:30</option>
+          <option value="3">3:00</option>
+          <option value="3.5">3:30</option>
+          <option value="4">4:00</option>
+          <option value="4.5">4:30</option>
+          <option value="5">5:00</option>
+          <option value="5.5">5:30</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="comment" class="control-label col-sm-2">Комментарий</label>
+    <div class="col-sm-6">
+      <textarea
+        type="email"
+        class="form-control"
+        id="comment"
+        placeholder="Комментарий"
+        rows="5"
+      ></textarea>
+    </div>
+  </div>
+  <div class="col-sm-offset-2">
+    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Отправить заявку</button>
+  </div>
+</form>

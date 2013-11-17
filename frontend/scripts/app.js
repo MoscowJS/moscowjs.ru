@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('application', ['ui.router'])
+var moscowjs = angular.module('moscowjs', ['ui.router'])
   .config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -10,10 +10,6 @@ angular.module('application', ['ui.router'])
     $stateProvider
       .state('root', {
         url: '/',
-        templateUrl: 'views/main.html'
-      })
-      .state('second', {
-        url: '/second',
-        templateUrl: 'views/second.html'
+        templateUrl: 'views/reg.html'
       })
   });
