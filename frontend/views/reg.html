@@ -1,31 +1,31 @@
-<form class="form-horizontal" name="regForm">
+<form class="form-horizontal" name="regForm" novalidate>
   <div class="form-group">
-    <label class="control-label col-sm-2">Имя</label>
-    <div class="col-sm-3">
+    <label class="control-label col-sm-2">Имя&nbsp;<span class="required">*</span></label>
+    <div class="col-sm-3" ng-class="regForm.firstName.$dirty && (regForm.firstName.$error.required && 'has-error' || 'has-success')">
       <input
         type="text"
         class="form-control"
-        id="first-name"
-        name="first-name"
+        id="firstName"
+        name="firstName"
         placeholder="Имя"
-        ng-model="name.first"
+        ng-model="appl.name.first"
         required
       />
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" ng-class="regForm.lastName.$dirty && (regForm.lastName.$error.required && 'has-error' || 'has-success')">
       <input
         type="text"
         class="form-control"
-        id="last-name"
-        name="last-name"
+        id="lastName"
+        name="lastName"
         placeholder="Фамилия"
-        ng-model="name.last"
+        ng-model="appl.name.last"
         required
       />
     </div>
   </div>
-  <div class="form-group" ng-class="{'has-error' : regForm.email.$error.email}">
-    <label for="email" class="control-label col-sm-2">E-mail</label>
+  <div class="form-group" ng-class="regForm.email.$dirty && ((regForm.email.$error.email || regForm.email.$error.required) && 'has-error' || 'has-success')">
+    <label for="email" class="control-label col-sm-2">E-mail&nbsp;<span class="required">*</span></label>
     <div class="col-sm-6">
       <input
         type="email"
@@ -33,13 +33,16 @@
         name="email"
         id="email"
         placeholder="Адрес электронной почты для связи"
-        ng-model="email"
+        ng-model="appl.email"
         required
       />
+    <span class="help-block">
+        <span ng-show="regForm.email.$error.email">Неверный адрес электронной почты</span>
+    </span>
     </div>
     
   </div>
-  <div class="form-group" ng-init="type = 'conferee'">
+  <div class="form-group" ng-init="appl.type = 'conferee'">
     <div class="col-sm-offset-2 col-sm-6">
       <div class="radio">
         <label>
@@ -48,7 +51,7 @@
             name="type"
             id="type-conferee"
             value="conferee"
-            ng-model="type"
+            ng-model="appl.type"
             checked
           />
           Участник
@@ -61,14 +64,14 @@
             name="type"
             id="type-speaker"
             value="speaker"
-            ng-model="type"
+            ng-model="appl.type"
           />
           Докладчик
         </label>
       </div>
     </div>
   </div>
-  <div ng-show="type == 'speaker'">
+  <div ng-if="appl.type == 'speaker'">
     <div class="form-group">
       <label for="phone" class="control-label col-sm-2">Телефон</label>
       <div class="col-sm-6">
@@ -77,44 +80,52 @@
           class="form-control"
           id="phone"
           placeholder="Ваш телефон для связи"
+          ng-model="appl.phone"
         />
       </div>
     </div>
-    <div class="form-group">
-      <label for="speech-title" class="control-label col-sm-2">Название доклада</label>
+    <div class="form-group" ng-class="regForm.speechTitle.$dirty && (regForm.speechTitle.$error.required && 'has-error' || 'has-success')">
+      <label for="speechTitle" class="control-label col-sm-2">Название доклада&nbsp;<span class="required">*</span></label>
       <div class="col-sm-6">
         <input
           type="text"
           class="form-control"
-          id="speech-title"
+          id="speechTitle"
+          name="speechTitle"
           placeholder="Полное название доклада"
+          ng-model="appl.speech.title"
+          required
         />
       </div>
     </div>
-    <div class="form-group">
-      <label for="speech-description" class="control-label col-sm-2">Описание доклада</label>
+    <div class="form-group" ng-class="regForm.speechDescription.$dirty && (regForm.speechDescription.$error.required && 'has-error' || 'has-success')">
+      <label for="speechDescription" class="control-label col-sm-2">Описание доклада&nbsp;<span class="required">*</span></label>
       <div class="col-sm-6">
         <textarea
-          type="speech-description"
           class="form-control"
-          id="comment"
+          id="speechDescription"
+          name="speechDescription"
           placeholder="Подробное описание доклада"
+          ng-model="appl.speech.description"
           rows="5"
+          required
         ></textarea>
       </div>
     </div>
-    <div class="form-group">
-      <label for="speech-duration" class="control-label col-sm-2">Примерное чистое время доклада (без времени на вопросы)</label>
+    <div class="form-group" ng-init="appl.speech.duration = 3">
+      <label for="speechDuration" class="control-label col-sm-2">Примерное чистое время доклада (без времени на вопросы)</label>
       <div class="col-sm-6">
         <select
           class="form-control"
-          id="speech-duration"
+          id="speechDuration"
+          name="speechDuration"
+          ng-model="appl.speech.duration"
         >
           <option value="1">1:00</option>
           <option value="1.5">1:30</option>
           <option value="2">2:00</option>
           <option value="2.5">2:30</option>
-          <option value="3">3:00</option>
+          <option value="3" selected>3:00</option>
           <option value="3.5">3:30</option>
           <option value="4">4:00</option>
           <option value="4.5">4:30</option>
@@ -131,12 +142,14 @@
         type="email"
         class="form-control"
         id="comment"
-        placeholder="Комментарий"
+        name="comment"
+        placeholder="Комментарий к заявке"
+        ng-model="appl.comment"
         rows="5"
       ></textarea>
     </div>
   </div>
   <div class="col-sm-offset-2">
-    <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">Отправить заявку</button>
+    <button type="submit" class="btn btn-primary" ng-disabled="regForm.$invalid">Отправить заявку</button>
   </div>
 </form>
