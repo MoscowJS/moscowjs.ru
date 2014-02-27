@@ -1,0 +1,190 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+@import 'compass/css3';
+
+@import 'sass-bootstrap/lib/variables';
+@import 'sass-bootstrap/lib/mixins';
+@import 'sass-bootstrap/lib/normalize';
+@import 'sass-bootstrap/lib/grid';
+@import 'sass-bootstrap/lib/responsive-utilities';
+@import 'sass-bootstrap/lib/forms';
+@import 'sass-bootstrap/lib/buttons';
+
+$font-sans: 'Open Sans', sans-serif;
+$font-serif: 'Noto Serif', serif;
+
+$color-text-dark: #2e2e2c;
+$color-text-red: #C75C5C;
+$color-text-white: #fff;
+$color-text-grey: #e5e5e5;
+$color-text-dark-grey: #999;
+$color-text-green: #76C2AF;
+
+$color-bg-yellow: #F5CF87; // f4b459;
+$color-bg-blue: #324d5b; //2b414d;
+$color-bg-green: #76C2AF;
+$color-bg-grey: #e5e5e5;
+
+html * {
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  color: $color-text-dark;
+  font-family: $font-sans;
+}
+
+div,
+header,
+footer,
+section,
+article,
+figure,
+input,
+label,
+blockquote,
+.btn {
+  box-sizing: border-box;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.page-header {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  // background: url('../images/header-bg.jpg') no-repeat center center fixed;
+  padding: 20px;
+
+  text-align: center;
+
+  h1, h2 {
+    color: $color-text-dark;
+  }
+
+  // @include background-size('cover');
+}
+
+.logo-header {
+  & {
+    font-weight: 700;
+  }
+
+  img {
+    margin-bottom: -0.17em;
+    height: 2em;
+    width: 2em;
+  }
+}
+
+.header-text {
+  //position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  width: 100%;
+
+  // background: rgba(229, 229, 229, 0.5);
+}
+
+.social-links {
+
+  @include make-row();
+  margin-right: 0;
+  margin-left: 0;
+
+  max-width: 80%;
+  margin: auto;
+
+  .link {
+    @include make-xs-column(4);
+  }
+
+  img {
+    width: 2.2em;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+// BASE TYPE
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  line-height: 1.3em;
+}
+
+h1 {
+  padding: 0.25em 0;
+  font-weight: 400;
+}
+
+h2 {
+  padding: 0.1em 0;
+}
+
+h3 {
+  padding: 0.4em 0;
+}
+
+h2 {
+  font-weight: 300;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+
+a {
+  color: #26a6d1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2394bc;
+}
+
+figure, figcaption {
+  text-align: center;
+}
+
+figcaption {
+  margin: 1em;
+}
+
+
+.btn-lg {
+  margin-top: 2em;
+  font-size: 1.2em;
+  height: 60px;
+}
+
+.top-offset {
+  margin-top: 1em;
+}
+
+.grey-text {
+  color: $color-text-dark-grey;
+}
+
+// END BASE TYPE
+
+
+// Grid
+
+// End Grid
