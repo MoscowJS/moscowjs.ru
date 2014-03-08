@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "sass-flex-mixin": "git@github.com:mastastealth/sass-flex-mixin.git"
   },
   "devDependencies": {}
 }

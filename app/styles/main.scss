@@ -1,5 +1,29 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+$font-sans: 'Open Sans', sans-serif;
+$font-serif: 'Noto Serif', serif;
+
+$color-text-dark: #2e2e2c;
+$color-text-dark-grey: #999;
+
+// $color-bg-yellow: #F5CF87; // f4b459;
+// $color-bg-blue: #324d5b; //2b414d;
+// $color-bg-green: #76C2AF;
+// $color-bg-grey: #e5e5e5;
+
+$color-blue: #25a5d1;
+$color-blue-dark: #2393bb;
+$color-ocean: #012539;
+$color-yellow: #efc75d;
+$color-yellow-dark: #f3b359;
+$color-orange: #e37947;
+$color-green: #3db39d;
+$color-green-dark: #339785;
+$color-white: #FFFFFF;
+$color-grey: #858585;
+$color-red: #e1574b;
+$color-red-dark: #bf392b;
+
 @import 'compass/css3';
 
 @import 'sass-bootstrap/lib/variables';
@@ -9,26 +33,9 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/responsive-utilities';
 @import 'sass-bootstrap/lib/forms';
 @import 'sass-bootstrap/lib/buttons';
+@import 'sass-bootstrap/lib/input-groups';
 
-$font-sans: 'Open Sans', sans-serif;
-$font-serif: 'Noto Serif', serif;
-
-$color-text-dark: #2e2e2c;
-$color-text-red: #C75C5C;
-$color-text-white: #fff;
-$color-text-grey: #e5e5e5;
-$color-text-dark-grey: #999;
-$color-text-green: #76C2AF;
-
-// $color-bg-yellow: #F5CF87; // f4b459;
-// $color-bg-blue: #324d5b; //2b414d;
-// $color-bg-green: #76C2AF;
-// $color-bg-grey: #e5e5e5;
-
-$color-blue: #324d5b; //#67BCDB;
-$color-yellow: #F5CF87; // #E44424;
-$color-green: #76C2AF;// #A2AB58;
-$color-white: #FFFFFF;
+@import 'sass-flex-mixin/flex';
 
 /*
 #E44424 orange
@@ -38,7 +45,7 @@ $color-white: #FFFFFF;
 */
 
 @mixin breakpoint($size) {
-  @media (max-width: $size) { @content; }
+  @media (min-width: $size) { @content; }
 }
 
 html * {
@@ -55,6 +62,10 @@ body {
   font-size: 20px;
   color: $color-text-dark;
   font-family: $font-sans;
+}
+
+.form-control, .btn {
+  @include border-radius(0);
 }
 
 div,
@@ -141,19 +152,17 @@ figcaption {
   margin: 1em;
 }
 
-
-.btn-lg {
-  margin-top: 2em;
-  font-size: 1.2em;
-  height: 60px;
-}
-
 .top-offset {
-  margin-top: 1em;
+  margin-top: .5em;
 }
 
 .grey-text {
   color: $color-text-dark-grey;
+}
+
+.emph {
+  display: inline-block;
+  background-color: $color-orange;
 }
 
 // END BASE TYPE
@@ -161,32 +170,37 @@ figcaption {
 
 // MODULES
 
-.section-one-third {
-  padding: 1.5em;
-}
-
 // MODULE EVENT
 .event {
-  margin-bottom: 1em;
+  padding-top: 1em;
   padding-bottom: 1em;
+  background: $color-white;
 
   &.event-upcoming {
-    border-bottom: 3px solid $color-text-dark;
+    border-bottom: 10px solid $color-text-dark;
+
+    .event-date-month {
+      color: $color-red;
+    }
   }
 
   &.event-past {
-    color: $color-text-dark-grey;
-    border-bottom: 3px solid $color-text-dark-grey;
+    color: $color-grey;
+    border-bottom: 10px solid $color-grey;
   }
 }
 
 .event-date {
   text-align: center;
-  background: $color-white;
 }
 
 .event-date-day {
   font-size: 2em;
+  line-height: 1em;
+}
+
+.event-talks {
+  list-style: square;
 }
 
 // END MODULE EVENT
@@ -196,19 +210,46 @@ figcaption {
 
 
 // MODIFIERS
+.bg-grey {
+  background-color: #e5e5e5;
+}
 
 .bg-blue {
   background: $color-blue;
   color: $color-white;
 }
 
+.bg-ocean {
+  background: $color-ocean;
+  color: $color-white;
+}
+
+.bg-azlk {
+  background: url("../images/azlk.jpg") no-repeat center center fixed;
+  @include background-size('cover');
+}
+
 .bg-green {
   background: $color-green;
 }
 
-
 .bg-yellow {
   background: $color-yellow;
+  color: $color-white;
+}
+
+.bg-orange {
+  background: $color-orange;
+  color: $color-white;
+}
+
+.bg-hoverable:hover {
+  background: url("../images/back-stripes-grey.png") repeat scroll 0 0 #fff;
+  cursor: pointer;
+}
+
+.frame-pad {
+  padding: 1.5em;
 }
 
 // END MODIFIERS
@@ -242,34 +283,43 @@ figcaption {
 */
 
 .section-container {
-  @include display-box;
-  @include box-align(stretch);
+  @include flexbox;
+  width: 100%;
 
-  @include breakpoint($screen-desktop) {
-    @include box-direction(row);
+  @include breakpoint($screen-phone) {
+    @include flex-flow(column);
+
+    .section-single-width,
+    .section-double-width {
+      width: auto;
+      @include order(0);
+    }
   }
 
   @include breakpoint($screen-tablet) {
-    @include box-direction(column);
+    @include flex-flow(row wrap);
+
+    .section-single-width {
+      @include flex(1 0 15em);
+    }
+
+    .section-double-width {
+      @include flex(2 0 20em);
+    }
   }
 }
 
-.section-one-third {
-  @include box-flex(2);
-}
-
 .event {
-  @include display-box;
-  @include box-direction(row nowrap);
+  @include flexbox;
+  @include flex-direction(row nowrap);
 }
 
 .event-date {
-  @include box-flex(1);
-  margin-right: 1.5em;
+  margin-right: 3em;
 }
 
 .event-description {
-  @include box-flex(3);
+  @include flex(3);
 }
 
 // End Grid
