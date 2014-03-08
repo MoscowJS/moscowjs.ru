@@ -1,5 +1,29 @@
 $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
+$font-sans: 'Open Sans', sans-serif;
+$font-serif: 'Noto Serif', serif;
+
+$color-text-dark: #2e2e2c;
+$color-text-dark-grey: #999;
+
+// $color-bg-yellow: #F5CF87; // f4b459;
+// $color-bg-blue: #324d5b; //2b414d;
+// $color-bg-green: #76C2AF;
+// $color-bg-grey: #e5e5e5;
+
+$color-blue: #25a5d1;
+$color-blue-dark: #2393bb;
+$color-ocean: #012539;
+$color-yellow: #efc75d;
+$color-yellow-dark: #f3b359;
+$color-orange: #e37947;
+$color-green: #3db39d;
+$color-green-dark: #339785;
+$color-white: #FFFFFF;
+$color-grey: #858585;
+$color-red: #e1574b;
+$color-red-dark: #bf392b;
+
 @import 'compass/css3';
 
 @import 'sass-bootstrap/lib/variables';
@@ -9,21 +33,20 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import 'sass-bootstrap/lib/responsive-utilities';
 @import 'sass-bootstrap/lib/forms';
 @import 'sass-bootstrap/lib/buttons';
+@import 'sass-bootstrap/lib/input-groups';
 
-$font-sans: 'Open Sans', sans-serif;
-$font-serif: 'Noto Serif', serif;
+@import 'sass-flex-mixin/flex';
 
-$color-text-dark: #2e2e2c;
-$color-text-red: #C75C5C;
-$color-text-white: #fff;
-$color-text-grey: #e5e5e5;
-$color-text-dark-grey: #999;
-$color-text-green: #76C2AF;
+/*
+#E44424 orange
+#67BCDB blue
+#A2AB58 green
+#FFFFFF white
+*/
 
-$color-bg-yellow: #F5CF87; // f4b459;
-$color-bg-blue: #324d5b; //2b414d;
-$color-bg-green: #76C2AF;
-$color-bg-grey: #e5e5e5;
+@mixin breakpoint($size) {
+  @media (min-width: $size) { @content; }
+}
 
 html * {
   -webkit-font-smoothing: antialiased;
@@ -36,9 +59,13 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  font-size: 40px;
+  font-size: 20px;
   color: $color-text-dark;
   font-family: $font-sans;
+}
+
+.form-control, .btn {
+  @include border-radius(0);
 }
 
 div,
@@ -50,8 +77,19 @@ figure,
 input,
 label,
 blockquote,
+ul,
+li,
 .btn {
   box-sizing: border-box;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
 }
 
 .container-full {
@@ -60,67 +98,7 @@ blockquote,
 }
 
 .page-header {
-  position: relative;
-
   width: 100%;
-  height: 100%;
-  // background: url('../images/header-bg.jpg') no-repeat center center fixed;
-  padding: 20px;
-
-  text-align: center;
-
-  h1, h2 {
-    color: $color-text-dark;
-  }
-
-  // @include background-size('cover');
-}
-
-.logo-header {
-  & {
-    font-weight: 700;
-  }
-
-  img {
-    margin-bottom: -0.17em;
-    height: 2em;
-    width: 2em;
-  }
-}
-
-.header-text {
-  //position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 50%;
-  width: 100%;
-
-  // background: rgba(229, 229, 229, 0.5);
-}
-
-.social-links {
-
-  @include make-row();
-  margin-right: 0;
-  margin-left: 0;
-
-  max-width: 80%;
-  margin: auto;
-
-  .link {
-    @include make-xs-column(4);
-  }
-
-  a {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  img {
-    max-width: 2.2em;
-    width: 100%;
-  }
 }
 
 .center {
@@ -174,24 +152,174 @@ figcaption {
   margin: 1em;
 }
 
-
-.btn-lg {
-  margin-top: 2em;
-  font-size: 1.2em;
-  height: 60px;
-}
-
 .top-offset {
-  margin-top: 1em;
+  margin-top: .5em;
 }
 
 .grey-text {
   color: $color-text-dark-grey;
 }
 
+.emph {
+  display: inline-block;
+  background-color: $color-orange;
+}
+
 // END BASE TYPE
 
 
+// MODULES
+
+// MODULE EVENT
+.event {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: $color-white;
+
+  &.event-upcoming {
+    border-bottom: 10px solid $color-text-dark;
+
+    .event-date-month {
+      color: $color-red;
+    }
+  }
+
+  &.event-past {
+    color: $color-grey;
+    border-bottom: 10px solid $color-grey;
+  }
+}
+
+.event-date {
+  text-align: center;
+}
+
+.event-date-day {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.event-talks {
+  list-style: square;
+}
+
+// END MODULE EVENT
+
+
+// END MODULES
+
+
+// MODIFIERS
+.bg-grey {
+  background-color: #e5e5e5;
+}
+
+.bg-blue {
+  background: $color-blue;
+  color: $color-white;
+}
+
+.bg-ocean {
+  background: $color-ocean;
+  color: $color-white;
+}
+
+.bg-azlk {
+  background: url("../images/azlk.jpg") no-repeat center center fixed;
+  @include background-size('cover');
+}
+
+.bg-green {
+  background: $color-green;
+}
+
+.bg-yellow {
+  background: $color-yellow;
+  color: $color-white;
+}
+
+.bg-orange {
+  background: $color-orange;
+  color: $color-white;
+}
+
+.bg-hoverable:hover {
+  background: url("../images/back-stripes-grey.png") repeat scroll 0 0 #fff;
+  cursor: pointer;
+}
+
+.frame-pad {
+  padding: 1.5em;
+}
+
+// END MODIFIERS
+
+
 // Grid
+/*
+.section-container {
+  @include make-row();
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-one-third {
+  @include make-xs-column(12);
+  @include make-sm-column(6);
+  @include make-md-column(4);
+}
+
+.event {
+  @include make-row();
+
+  .event-date {
+    @include make-xs-column(3);
+  }
+
+  .event-description {
+    @include make-xs-column(9);
+  }
+}
+*/
+
+.section-container {
+  @include flexbox;
+  width: 100%;
+
+  @include breakpoint($screen-phone) {
+    @include flex-flow(column);
+
+    .section-single-width,
+    .section-double-width {
+      width: auto;
+      @include order(0);
+    }
+  }
+
+  @include breakpoint($screen-tablet) {
+    @include flex-flow(row wrap);
+
+    .section-single-width {
+      @include flex(1 0 15em);
+    }
+
+    .section-double-width {
+      @include flex(2 0 20em);
+    }
+  }
+}
+
+.event {
+  @include flexbox;
+  @include flex-direction(row nowrap);
+}
+
+.event-date {
+  margin-right: 3em;
+}
+
+.event-description {
+  @include flex(3);
+}
 
 // End Grid
