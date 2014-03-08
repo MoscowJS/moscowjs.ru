@@ -166,8 +166,23 @@ figcaption {
 }
 
 // MODULE EVENT
+.event {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+
+  &.event-upcoming {
+    border-bottom: 3px solid $color-text-dark;
+  }
+
+  &.event-past {
+    color: $color-text-dark-grey;
+    border-bottom: 3px solid $color-text-dark-grey;
+  }
+}
+
 .event-date {
   text-align: center;
+  background: $color-white;
 }
 
 .event-date-day {
@@ -245,11 +260,12 @@ figcaption {
 
 .event {
   @include display-box;
-  @include box-direction(row);
+  @include box-direction(row nowrap);
 }
 
 .event-date {
   @include box-flex(1);
+  margin-right: 1.5em;
 }
 
 .event-description {
