@@ -97,14 +97,27 @@ ul {
   width: 100%;
 }
 
-.page-header {
-  width: 100%;
-}
-
 .center {
   text-align: center;
 }
 
+.simple-select {
+  position: relative;
+
+  .input-lg {
+    -webkit-appearance: none;
+    line-height: 1em;
+  }
+}
+
+.simple-select:before {
+  position: absolute;
+  right: .5em;
+  top: .4em;
+  content: '\2195';
+  color: #666;
+  z-index: 1;
+}
 // BASE TYPE
 
 h1, h2, h3, h4, p {
@@ -126,7 +139,7 @@ h3 {
 }
 
 h2 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 p {
@@ -286,36 +299,44 @@ figcaption {
   @include flexbox;
   width: 100%;
 
-  @include breakpoint($screen-phone) {
-    @include flex-flow(column);
+  @include flex-flow(column);
 
-    .section-single-width,
-    .section-double-width {
-      width: auto;
-      @include order(0);
-    }
+  .section-single-width,
+  .section-double-width {
+    width: auto;
+    @include order(0);
   }
 
   @include breakpoint($screen-tablet) {
     @include flex-flow(row wrap);
 
     .section-single-width {
-      @include flex(1 0 15em);
+      @include flex(1 0 16em);
     }
 
     .section-double-width {
-      @include flex(2 0 20em);
+      @include flex(2 0 22em);
+    }
+
+    .section-full-width {
+      @include flex(0 0 100%);
+    }
+
+    .section-half-width {
+      @include flex(1 1 50%);
     }
   }
 }
 
 .event {
   @include flexbox;
-  @include flex-direction(row nowrap);
+  @include flex-flow(row nowrap);
+  @include justify-content(flex-start);
 }
 
 .event-date {
   margin-right: 3em;
+  @include flex(1);
 }
 
 .event-description {

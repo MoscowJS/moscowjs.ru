@@ -35,7 +35,7 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <header class="section-container page-header">
+        <div class="section-container">
 
           <section class="bg-orange frame-pad section-single-width">
             <h1 class="">Moscow JS</h1>
@@ -56,7 +56,7 @@
                 <div class="event-description">
                   <ul class="event-talks">
                     <li>AngularJS и Perl-backend</li>
-                    <li>Компиляция Javascript &mdash; то что нужно</li>
+                    <li>BWT &mdash; Brainfuck Web Toolkit</li>
                   </ul>
                 </div>
               </li>
@@ -69,7 +69,7 @@
                 <div class="event-description">
                   <ul class="event-talks">
                     <li>AngularJS и Perl-backend</li>
-                    <li>Компиляция Javascript &mdash; то что нужно</li>
+                    <li>BWT &mdash; Brainfuck Web Toolkit</li>
                   </ul>
                 </div>
               </li>
@@ -82,9 +82,8 @@
                 <div class="event-description">
                   <ul class="event-talks">
                     <li>AngularJS и Perl-backend</li>
-                    <li>Компиляция Javascript &mdash; то что нужно</li>
+                    <li>BWT &mdash; Brainfuck Web Toolkit</li>
                     <li>AngularJS и Perl-backend</li>
-                    <li>Компиляция Javascript &mdash; то что нужно</li>
                   </ul>
                 </div>
               </li>
@@ -123,12 +122,54 @@
 
             </form>
           </section>
-        </header>
 
-        <div class="container-full">
+          <div class="section-container">
+            <section class="bg-grey frame-pad section-double-width">
+              <h3>Выступить с докладом</h3>
+
+              <form class="talk" role="form">
+                <div class="form-group">
+                  <input type="email" class="form-control input-lg"
+                    id="talk-email"
+                    name="email"
+                    placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                  <label for="talk-theme">Тема доклада</label>
+                  <input type="text" class="form-control input-lg"
+                    id="talk-theme"
+                    maxlength="50"
+                    placeholder="О чём вы хотели бы рассказать?">
+                </div>
+
+                <div class="form-group">
+                  <label for="talk-duration">
+                    Продолжительность выступления
+                  </label>
+                  <div class="simple-select">
+                    <select id="talk-duration"
+                      class="form-control simple-select input-lg">
+                      <option value="15">15 минут</option>
+                      <option value="30">30 минут</option>
+                      <option value="45">45 минут</option>
+                      <option value="60">1 час</option>
+                      <option value="60+">Больше часа</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-default btn-lg">
+                  Отправить заявку
+                </button>
+              </form>
+
+            </section>
+
+            <section class="section-single-width bg-green"></section>
+          </div>
 
         </div>
-
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
