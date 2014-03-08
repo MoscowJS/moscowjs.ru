@@ -25,9 +25,9 @@ $color-text-green: #76C2AF;
 // $color-bg-green: #76C2AF;
 // $color-bg-grey: #e5e5e5;
 
-$color-blue: #67BCDB;
-$color-orange: #E44424;
-$color-green: #A2AB58;
+$color-blue: #324d5b; //#67BCDB;
+$color-yellow: #F5CF87; // #E44424;
+$color-green: #76C2AF;// #A2AB58;
 $color-white: #FFFFFF;
 
 /*
@@ -36,6 +36,10 @@ $color-white: #FFFFFF;
 #A2AB58 green
 #FFFFFF white
 */
+
+@mixin breakpoint($size) {
+  @media (max-width: $size) { @content; }
+}
 
 html * {
   -webkit-font-smoothing: antialiased;
@@ -62,8 +66,19 @@ figure,
 input,
 label,
 blockquote,
+ul,
+li,
 .btn {
   box-sizing: border-box;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
 }
 
 .container-full {
@@ -73,18 +88,6 @@ blockquote,
 
 .page-header {
   width: 100%;
-  height: 100%;
-  // background: url('../images/header-bg.jpg') no-repeat center center fixed;
-
-  h1, h2 {
-    color: $color-text-dark;
-  }
-
-  section {
-    min-height: 100%;
-  }
-
-  // @include background-size('cover');
 }
 
 .center {
@@ -156,10 +159,32 @@ figcaption {
 // END BASE TYPE
 
 
+// MODULES
+
+.section-one-third {
+  padding: 1.5em;
+}
+
+// MODULE EVENT
+.event-date {
+  text-align: center;
+}
+
+.event-date-day {
+  font-size: 2em;
+}
+
+// END MODULE EVENT
+
+
+// END MODULES
+
+
 // MODIFIERS
 
 .bg-blue {
   background: $color-blue;
+  color: $color-white;
 }
 
 .bg-green {
@@ -167,15 +192,15 @@ figcaption {
 }
 
 
-.bg-orange {
-  background: $color-orange;
+.bg-yellow {
+  background: $color-yellow;
 }
 
 // END MODIFIERS
 
 
 // Grid
-
+/*
 .section-container {
   @include make-row();
   margin: 0 auto;
@@ -186,6 +211,49 @@ figcaption {
   @include make-xs-column(12);
   @include make-sm-column(6);
   @include make-md-column(4);
+}
+
+.event {
+  @include make-row();
+
+  .event-date {
+    @include make-xs-column(3);
+  }
+
+  .event-description {
+    @include make-xs-column(9);
+  }
+}
+*/
+
+.section-container {
+  @include display-box;
+  @include box-align(stretch);
+
+  @include breakpoint($screen-desktop) {
+    @include box-direction(row);
+  }
+
+  @include breakpoint($screen-tablet) {
+    @include box-direction(column);
+  }
+}
+
+.section-one-third {
+  @include box-flex(2);
+}
+
+.event {
+  @include display-box;
+  @include box-direction(row);
+}
+
+.event-date {
+  @include box-flex(1);
+}
+
+.event-description {
+  @include box-flex(3);
 }
 
 // End Grid
