@@ -132,15 +132,18 @@
                   <input type="email" class="form-control input-lg"
                     id="talk-email"
                     name="email"
-                    placeholder="Email">
+                    placeholder="Email"
+                    required>
                 </div>
 
                 <div class="form-group">
-                  <label for="talk-theme">Тема доклада</label>
+                  <label for="talk-topic">Тема доклада</label>
                   <input type="text" class="form-control input-lg"
-                    id="talk-theme"
+                    id="talk-topic"
+                    name="topic"
                     maxlength="50"
-                    placeholder="О чём вы хотели бы рассказать?">
+                    placeholder="О чём вы хотели бы рассказать?"
+                    required>
                 </div>
 
                 <div class="form-group">
@@ -149,7 +152,9 @@
                   </label>
                   <div class="simple-select">
                     <select id="talk-duration"
-                      class="form-control simple-select input-lg">
+                      class="form-control simple-select input-lg"
+                      name="duration"
+                      required>
                       <option value="15">15 минут</option>
                       <option value="30">30 минут</option>
                       <option value="45">45 минут</option>
@@ -163,6 +168,14 @@
                   Отправить заявку
                 </button>
               </form>
+
+              <p class="thank-you" hidden>
+                Спасибо, записали!
+              </p>
+
+              <p class="error" hidden>
+                Что-то пошло не так, попробуйте позже&hellip;
+              </p>
 
             </section>
 
@@ -191,7 +204,7 @@
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
-        <!--script src="bower_components/jquery/jquery.js"></script-->
+        <script src="bower_components/jquery/jquery.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -204,6 +217,8 @@ window.analytics.page();
         <!-- build:js scripts/plugins.js -->
         <!--script src="bower_components/wow/dist/wow.js"></script-->
         <!-- endbuild -->
+
+        <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
