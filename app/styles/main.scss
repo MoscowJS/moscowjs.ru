@@ -178,6 +178,10 @@ figcaption {
   background-color: $color-orange;
 }
 
+label {
+  font-weight: 400;
+}
+
 // END BASE TYPE
 
 
@@ -218,6 +222,19 @@ figcaption {
 
 // END MODULE EVENT
 
+.logo-img {
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.link-section {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  cursor: pointer;
+}
 
 // END MODULES
 
@@ -244,6 +261,7 @@ figcaption {
 
 .bg-green {
   background: $color-green;
+  color: $color-white;
 }
 
 .bg-yellow {
@@ -259,6 +277,24 @@ figcaption {
 .bg-hoverable:hover {
   background: url("../images/back-stripes-grey.png") repeat scroll 0 0 #fff;
   cursor: pointer;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+  background-image: url("../images/fb.svg");
+  background-size: 50% 50%;
+}
+
+.bg-twitter {
+  background-color: #5FA9DD;
+  background-image: url("../images/twitter.svg");
+  background-size: 50% 50%;
+}
+
+.bg-meetup {
+  background-color: $color-white;
+  background-image: url("../images/meetup.gif");
+  background-size: 200px 148px;
 }
 
 .frame-pad {
