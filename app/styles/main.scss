@@ -189,12 +189,11 @@ label {
 
 // MODULE EVENT
 .event {
-  padding-top: 1em;
   padding-bottom: 1em;
   background: $color-white;
 
   &.event-upcoming {
-    border-bottom: 10px solid $color-text-dark;
+    //border-bottom: 10px solid $color-text-dark;
 
     .event-date-month {
       color: $color-red;
@@ -203,17 +202,52 @@ label {
 
   &.event-past {
     color: $color-grey;
-    border-bottom: 10px solid $color-grey;
+    //border-bottom: 10px solid $color-grey;
   }
+}
+
+
+.event-status {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  height: 2em;
+  line-height: 2em;
+  font-weight: bold;
+
+  &.event-status-closed {
+    background-color: $color-red;
+    color: white;
+    text-align: center;
+  }
+
+  &.event-status-past {
+    background-color: $color-grey;
+    color: white;
+    text-align: center;
+  }
+
+}
+
+.event-date, .event-description {
+  padding-top: 1em;
 }
 
 .event-date {
   text-align: center;
+  padding-left: 1em;
+}
+
+.event-description {
+  padding-right: 1em;
 }
 
 .event-date-day {
   font-size: 2em;
   line-height: 1em;
+}
+
+.event-date-year {
+  font-size: 1.3em;
 }
 
 .event-talks {
@@ -370,8 +404,12 @@ label {
 
 .event {
   @include flexbox;
-  @include flex-flow(row nowrap);
+  @include flex-flow(row wrap);
   @include justify-content(flex-start);
+}
+
+.event-status {
+  @include flex(1 0 100%);
 }
 
 .event-date {
