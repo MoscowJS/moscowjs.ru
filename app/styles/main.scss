@@ -1,0 +1,424 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+$font-sans: 'Open Sans', sans-serif;
+$font-serif: 'Noto Serif', serif;
+
+$color-text-dark: #2e2e2c;
+$color-text-dark-grey: #999;
+
+// $color-bg-yellow: #F5CF87; // f4b459;
+// $color-bg-blue: #324d5b; //2b414d;
+// $color-bg-green: #76C2AF;
+// $color-bg-grey: #e5e5e5;
+
+$color-blue: #25a5d1;
+$color-blue-dark: #2393bb;
+$color-ocean: #012539;
+$color-yellow: #efc75d;
+$color-yellow-dark: #f3b359;
+$color-orange: #e37947;
+$color-green: #3db39d;
+$color-green-dark: #339785;
+$color-white: #FFFFFF;
+$color-grey: #858585;
+$color-red: #e1574b;
+$color-red-dark: #bf392b;
+
+@import 'compass/css3';
+
+@import 'sass-bootstrap/lib/variables';
+@import 'sass-bootstrap/lib/mixins';
+@import 'sass-bootstrap/lib/normalize';
+@import 'sass-bootstrap/lib/grid';
+@import 'sass-bootstrap/lib/responsive-utilities';
+@import 'sass-bootstrap/lib/forms';
+@import 'sass-bootstrap/lib/buttons';
+@import 'sass-bootstrap/lib/input-groups';
+
+@import 'sass-flex-mixin/flex';
+
+/*
+#E44424 orange
+#67BCDB blue
+#A2AB58 green
+#FFFFFF white
+*/
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) { @content; }
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: $color-text-dark;
+  font-family: $font-sans;
+}
+
+.form-control, .btn {
+  @include border-radius(0);
+}
+
+div,
+header,
+footer,
+section,
+article,
+figure,
+input,
+label,
+blockquote,
+ul,
+li,
+.btn {
+  box-sizing: border-box;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.simple-select {
+  position: relative;
+
+  .input-lg {
+    -webkit-appearance: none;
+    line-height: 1em;
+  }
+}
+
+.simple-select:before {
+  position: absolute;
+  right: .5em;
+  top: .4em;
+  content: '\2195';
+  color: #666;
+  z-index: 1;
+}
+// BASE TYPE
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  line-height: 1.3em;
+}
+
+h1 {
+  padding: 0.25em 0;
+  font-weight: 400;
+}
+
+h2 {
+  padding: 0.1em 0;
+}
+
+h3 {
+  padding: 0.4em 0;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+
+a {
+  color: #26a6d1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2394bc;
+}
+
+figure, figcaption {
+  text-align: center;
+}
+
+figcaption {
+  margin: 1em;
+}
+
+.top-offset {
+  margin-top: .5em;
+}
+
+.grey-text {
+  color: $color-text-dark-grey;
+}
+
+.emph {
+  display: inline-block;
+  background-color: $color-orange;
+}
+
+label {
+  font-weight: 400;
+}
+
+// END BASE TYPE
+
+
+// MODULES
+
+// MODULE EVENT
+.event {
+  padding-bottom: 1em;
+  background: $color-white;
+
+  &.event-upcoming {
+    //border-bottom: 10px solid $color-text-dark;
+
+    .event-date-month {
+      color: $color-red;
+    }
+  }
+
+  &.event-past {
+    color: $color-grey;
+    //border-bottom: 10px solid $color-grey;
+  }
+}
+
+
+.event-status {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  height: 2em;
+  line-height: 2em;
+  font-weight: bold;
+
+  &.event-status-closed {
+    background-color: $color-red;
+    color: white;
+    text-align: center;
+  }
+
+  &.event-status-past {
+    background-color: $color-grey;
+    color: white;
+    text-align: center;
+  }
+
+}
+
+.event-date, .event-description {
+  padding-top: 1em;
+}
+
+.event-date {
+  text-align: center;
+  padding-left: 1em;
+}
+
+.event-description {
+  padding-right: 1em;
+}
+
+.event-date-day {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.event-date-year {
+  font-size: 1.3em;
+}
+
+.event-talks {
+  list-style: square;
+}
+
+// END MODULE EVENT
+
+.logo-img {
+  width: 90%;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+.link-section {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  cursor: pointer;
+}
+
+// END MODULES
+
+
+// MODIFIERS
+.bg-grey {
+  background-color: #e5e5e5;
+}
+
+.bg-blue {
+  background: $color-blue;
+  color: $color-white;
+}
+
+.bg-ocean {
+  background: $color-ocean;
+  color: $color-white;
+}
+
+.bg-azlk {
+  background: url("../images/azlk.jpg") no-repeat center center fixed;
+  @include background-size('cover');
+}
+
+.bg-green {
+  background: $color-green;
+  color: $color-white;
+}
+
+.bg-yellow {
+  background: $color-yellow;
+  color: $color-white;
+}
+
+.bg-orange {
+  background: $color-orange;
+  color: $color-white;
+}
+
+.bg-hoverable:hover {
+  background: url("../images/back-stripes-grey.png") repeat scroll 0 0 #fff;
+  cursor: pointer;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+  background-image: url("../images/fb.svg");
+  background-size: 50% 50%;
+}
+
+.bg-twitter {
+  background-color: #5FA9DD;
+  background-image: url("../images/twitter.svg");
+  background-size: 50% 50%;
+}
+
+.bg-meetup {
+  background-color: $color-white;
+  background-image: url("../images/meetup.gif");
+  background-size: 200px 148px;
+}
+
+.frame-pad {
+  padding: 1.5em;
+}
+
+
+.no-color, .no-color:hover {
+  color: inherit;
+}
+// END MODIFIERS
+
+
+// Grid
+/*
+.section-container {
+  @include make-row();
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-one-third {
+  @include make-xs-column(12);
+  @include make-sm-column(6);
+  @include make-md-column(4);
+}
+
+.event {
+  @include make-row();
+
+  .event-date {
+    @include make-xs-column(3);
+  }
+
+  .event-description {
+    @include make-xs-column(9);
+  }
+}
+*/
+
+.section-container {
+  @include flexbox;
+  width: 100%;
+
+  @include flex-flow(column);
+
+  .section-single-width,
+  .section-double-width {
+    width: auto;
+    @include order(0);
+  }
+
+  @include breakpoint($screen-tablet) {
+    @include flex-flow(row wrap);
+
+    .section-single-width {
+      @include flex(1 0 16em);
+    }
+
+    .section-double-width {
+      @include flex(2 0 22em);
+    }
+
+    .section-full-width {
+      @include flex(0 0 100%);
+    }
+
+    .section-half-width {
+      @include flex(1 1 50%);
+    }
+  }
+}
+
+.event {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  @include justify-content(flex-start);
+}
+
+.event-status {
+  @include flex(1 0 100%);
+}
+
+.event-date {
+  margin-right: 3em;
+  @include flex(1);
+}
+
+.event-description {
+  @include flex(3);
+}
+
+// End Grid

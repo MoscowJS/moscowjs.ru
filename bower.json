@@ -1,14 +1,10 @@
 {
-  "name": "application",
-  "version": "0.0.0",
+  "name": "moscowjs-ru",
+  "private": true,
   "dependencies": {
-    "angular": "~1.2.0",
-    "angular-resource": "~1.0.7",
-    "angular-cookies": "~1.0.7",
-    "angular-sanitize": "~1.0.7",
-    "bootstrap": "~3.0.0",
-    "angular-bootstrap": "~0.6.0",
-    "angular-ui-router": "~0.2.0",
-    "angular-ui": "~0.4.0"
-  }
+    "sass-bootstrap": "~3.0.0",
+    "jquery": "~1.10.2",
+    "sass-flex-mixin": "git@github.com:mastastealth/sass-flex-mixin.git"
+  },
+  "devDependencies": {}
 }
