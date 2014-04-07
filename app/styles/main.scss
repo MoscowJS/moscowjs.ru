@@ -16,11 +16,12 @@ $color-blue-dark: #2393bb;
 $color-ocean: #012539;
 $color-yellow: #efc75d;
 $color-yellow-dark: #f3b359;
-$color-orange: #e37947;
+$color-logo: #f3df49;
 $color-green: #3db39d;
 $color-green-dark: #339785;
 $color-white: #FFFFFF;
 $color-grey: #858585;
+$color-grey-dark: #2e2e2c;
 $color-red: #e1574b;
 $color-red-dark: #bf392b;
 
@@ -38,7 +39,7 @@ $color-red-dark: #bf392b;
 @import 'sass-flex-mixin/flex';
 
 /*
-#E44424 orange
+#E44424 logo
 #67BCDB blue
 #A2AB58 green
 #FFFFFF white
@@ -127,7 +128,7 @@ h1, h2, h3, h4, p {
 
 h1 {
   padding: 0.25em 0;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 h2 {
@@ -175,13 +176,20 @@ figcaption {
 
 .emph {
   display: inline-block;
-  background-color: $color-orange;
+  background-color: $color-logo;
 }
 
 label {
   font-weight: 400;
 }
 
+input.form-control {
+  color: $color-grey-dark;
+}
+
+.btn, .form-control {
+  font-size: 1em;
+}
 // END BASE TYPE
 
 
@@ -226,6 +234,12 @@ label {
     text-align: center;
   }
 
+  &.event-status-registration {
+    background-color: #5cb85c;
+    color: white;
+    text-align: center;
+  }
+
 }
 
 .event-date, .event-description {
@@ -246,21 +260,30 @@ label {
   line-height: 1em;
 }
 
+.event-date-month {
+  font-size: 1.3em;
+}
+
 .event-date-year {
   font-size: 1.3em;
 }
 
 .event-talks {
   list-style: square;
+  line-height: 1.5em;
+
+  p {
+    margin-top: 0.4em;
+  }
 }
 
 // END MODULE EVENT
-
 .logo-img {
-  width: 90%;
+  max-height: 12em;
+  width: 100%;
+  height: 100%;
   margin: auto;
   display: block;
-  text-align: center;
 }
 
 .link-section {
@@ -303,9 +326,9 @@ label {
   color: $color-white;
 }
 
-.bg-orange {
-  background: $color-orange;
-  color: $color-white;
+.bg-logo {
+  background: $color-logo;
+  color: $color-grey-dark;
 }
 
 .bg-hoverable:hover {
@@ -339,6 +362,7 @@ label {
 .no-color, .no-color:hover {
   color: inherit;
 }
+
 // END MODIFIERS
 
 
@@ -399,6 +423,22 @@ label {
     .section-half-width {
       @include flex(1 1 50%);
     }
+  }
+}
+
+.center-content {
+  @include flexbox;
+  @include align-content(center);
+}
+
+.space-content {
+  @include flexbox;
+  @include flex-flow(column);
+
+  > div {
+    @include flex(1 0 100%);
+    min-height: 12em;
+    width: 100%;
   }
 }
 
