@@ -186,6 +186,10 @@ label {
 input.form-control {
   color: $color-grey-dark;
 }
+
+.btn, .form-control {
+  font-size: 1em;
+}
 // END BASE TYPE
 
 
@@ -230,6 +234,12 @@ input.form-control {
     text-align: center;
   }
 
+  &.event-status-registration {
+    background-color: #5cb85c;
+    color: white;
+    text-align: center;
+  }
+
 }
 
 .event-date, .event-description {
@@ -250,17 +260,28 @@ input.form-control {
   line-height: 1em;
 }
 
+.event-date-month {
+  font-size: 1.3em;
+}
+
 .event-date-year {
   font-size: 1.3em;
 }
 
 .event-talks {
   list-style: square;
+  line-height: 1.5em;
+
+  p {
+    margin-top: 0.4em;
+  }
 }
 
 // END MODULE EVENT
 .logo-img {
-  max-width: 200px;
+  max-height: 12em;
+  width: 100%;
+  height: 100%;
   margin: auto;
   display: block;
 }
@@ -341,6 +362,7 @@ input.form-control {
 .no-color, .no-color:hover {
   color: inherit;
 }
+
 // END MODIFIERS
 
 
@@ -404,9 +426,20 @@ input.form-control {
   }
 }
 
-.logo-container {
+.center-content {
   @include flexbox;
   @include align-content(center);
+}
+
+.space-content {
+  @include flexbox;
+  @include flex-flow(column);
+
+  > div {
+    @include flex(1 0 100%);
+    min-height: 12em;
+    width: 100%;
+  }
 }
 
 .event {
