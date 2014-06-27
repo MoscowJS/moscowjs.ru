@@ -212,6 +212,10 @@ input.form-control {
     color: $color-grey;
     //border-bottom: 10px solid $color-grey;
   }
+
+  &.event-hidden {
+    display: none;
+  }
 }
 
 
