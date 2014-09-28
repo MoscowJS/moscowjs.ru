@@ -54,14 +54,19 @@ gulp.task('html', ['gen', 'styles', 'scripts'], function() {
 
 
 gulp.task('images', function () {
-    return gulp.src('app/images/**/*')
-        .pipe($.cache($.imagemin({
-            optimizationLevel: 3,
-            progressive: true,
-            interlaced: true
-        })))
-        .pipe(gulp.dest('dist/images'))
-        .pipe($.size());
+    return gulp.src([
+      'app/images/**/*.jpg',
+      'app/images/**/*.jpeg',
+      'app/images/**/*.png',
+      'app/images/**/*.svg',
+    ])
+      .pipe($.cache($.imagemin({
+          optimizationLevel: 3,
+          progressive: true,
+          interlaced: true
+      })))
+      .pipe(gulp.dest('dist/images'))
+      .pipe($.size());
 });
 
 
