@@ -1,0 +1,592 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+$font-sans: 'Open Sans', sans-serif;
+$font-serif: 'Noto Serif', serif;
+
+$color-text-dark: #2e2e2c;
+$color-text-dark-grey: #999;
+
+// $color-bg-yellow: #F5CF87; // f4b459;
+// $color-bg-blue: #324d5b; //2b414d;
+// $color-bg-green: #76C2AF;
+// $color-bg-grey: #e5e5e5;
+
+$color-blue: #25a5d1;
+$color-blue-dark: #2393bb;
+$color-ocean: #012539;
+$color-yellow: #efc75d;
+$color-yellow-dark: #f3b359;
+$color-logo: #f3df49;
+$color-green: #3db39d;
+$color-green-dark: #339785;
+$color-white: #FFFFFF;
+$color-grey: #858585;
+$color-grey-dark: #2e2e2c;
+$color-grey-light: #e5e5e5;
+$color-red: #e1574b;
+$color-red-dark: #bf392b;
+
+@import 'compass/css3';
+
+@import 'sass-bootstrap/lib/variables';
+@import 'sass-bootstrap/lib/mixins';
+@import 'sass-bootstrap/lib/normalize';
+@import 'sass-bootstrap/lib/responsive-utilities';
+@import 'sass-bootstrap/lib/forms';
+@import 'sass-bootstrap/lib/buttons';
+@import 'sass-bootstrap/lib/input-groups';
+@import 'sass-bootstrap/lib/utilities';
+
+@import 'sass-flex-mixin/flex';
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) { @content; }
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  height: 100%;
+}
+
+
+iframe {
+  margin-top: 1.5em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: $color-text-dark;
+  font-family: $font-sans;
+}
+
+.form-control, .btn {
+  @include border-radius(0);
+}
+
+div,
+header,
+footer,
+section,
+article,
+figure,
+input,
+label,
+blockquote,
+ul,
+li,
+.btn {
+  box-sizing: border-box;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.container-full {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin: auto;
+}
+
+.simple-select {
+  position: relative;
+
+  .input-lg {
+    -webkit-appearance: none;
+    line-height: 1em;
+  }
+}
+
+.simple-select:before {
+  position: absolute;
+  right: .5em;
+  top: .4em;
+  content: '\2195';
+  color: #666;
+  z-index: 1;
+}
+// BASE TYPE
+
+h1, h2, h3, h4, p {
+  margin: 0;
+  line-height: 1.3em;
+}
+
+h2, h3, h4 {
+  font-weight: 600;
+}
+
+h1 {
+  padding: 0.25em 0;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+h2 {
+  padding: 0.1em 0;
+}
+
+h3 {
+  padding: 0.4em 0;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+
+a {
+  color: #26a6d1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #2394bc;
+}
+
+figure, figcaption {
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+}
+
+figcaption {
+  //margin: 1em;
+}
+
+.top-offset {
+  margin-top: .5em;
+}
+
+.bottom-offset {
+  margin-bottom: 1em;
+}
+
+.grey-text {
+  color: $color-text-dark-grey;
+}
+
+.emph {
+  display: inline-block;
+  background-color: $color-logo;
+}
+
+label {
+  font-weight: 400;
+}
+
+input.form-control {
+  color: $color-grey-dark;
+}
+
+.btn, .form-control {
+  font-size: 1em;
+}
+
+.btn-lg {
+  font-size: 1.2em;
+}
+// END BASE TYPE
+
+
+// MODULES
+
+// MODULE EVENT
+.event {
+  padding-bottom: 1em;
+  background: $color-white;
+
+  &.event-upcoming {
+    //border-bottom: 10px solid $color-text-dark;
+
+    .event-date-month {
+      color: $color-red;
+    }
+  }
+
+  &.event-past {
+    color: $color-grey;
+    //border-bottom: 10px solid $color-grey;
+  }
+
+  &.event-hidden {
+    display: none;
+  }
+}
+
+
+.event-status {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  height: 2em;
+  line-height: 2em;
+  font-weight: 600;
+  text-align: center;
+
+  &.event-status-closed {
+    background-color: $color-red;
+    color: white;
+  }
+
+  &.event-status-past {
+    background-color: $color-grey;
+    color: white;
+  }
+
+  &.event-status-registration {
+    background-color: #5cb85c;
+    color: white;
+  }
+
+}
+
+.event-date, .event-description {
+  padding-top: 1em;
+}
+
+.event-date {
+  text-align: center;
+  padding-left: 1em;
+}
+
+.event-description {
+  padding-right: 1em;
+}
+
+.event-date-day {
+  font-size: 2em;
+  line-height: 1em;
+}
+
+.event-date-month {
+  font-size: 1.3em;
+}
+
+.event-date-year {
+  font-size: 1.3em;
+}
+
+.event-talks {
+  list-style: square;
+  line-height: 1.5em;
+
+  p {
+    margin-top: 0.4em;
+  }
+}
+
+// END MODULE EVENT
+.logo-img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: block;
+
+  max-height: 5em;
+  max-width: 5em;
+
+  @include breakpoint($screen-tablet) {
+    max-height: 12em;
+    max-width: 12em;
+  }
+}
+
+.link-section {
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 300px;
+  cursor: pointer;
+}
+
+.section-pic {
+  height: 100%;
+}
+
+// Cards
+.article {
+  margin-bottom: 3em;
+}
+
+.article-header {
+  margin-bottom: 2em;
+}
+
+.article-title {
+  font-weight: 600;
+  margin-bottom: 0.2em;
+}
+
+.article-sub-title {
+  font-weight: normal;
+  margin: 0;
+}
+
+.article-image {
+}
+
+.article-title {
+}
+
+.article-content p {
+  margin-top: 1em;
+}
+
+.article-details-link {
+  color: $color-text-dark;
+
+  transition: color 200ms ease-out;
+}
+
+
+.article-details-link:hover {
+  color: $color-text-dark;
+}
+
+.userpic {
+  width: 40%;
+  max-width: 8em;
+  padding-left: 2em;
+}
+
+.nav {
+  color: $color-grey-dark;
+  margin: 2em auto;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+
+  min-height: 60px;
+}
+
+.nav-item.selected, .nav-item:hover {
+}
+
+.nav-item a {
+  color: inherit;
+}
+
+.nav-item a:hover {
+  color: inherit;
+}
+
+// END MODULES
+
+
+// MODIFIERS
+
+.pull-right {
+  float: right;
+}
+
+
+.clearfix {
+  clear: both;
+}
+
+.clearfix:before {
+  clear: both;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+
+.bg-grey {
+  background-color: #e5e5e5;
+}
+
+.bg-blue {
+  background: $color-blue;
+  color: $color-white;
+}
+
+.bg-ocean {
+  background: $color-ocean;
+  color: $color-white;
+}
+
+.bg-azlk {
+  background: url("../images/azlk.jpg") no-repeat center center fixed;
+  @include background-size('cover');
+}
+
+.bg-green {
+  background: $color-green;
+  color: $color-white;
+}
+
+.bg-yellow {
+  background: $color-yellow;
+  color: $color-white;
+}
+
+.bg-logo {
+  background: $color-logo;
+  color: $color-grey-dark;
+}
+
+.bg-hoverable:hover {
+  background: url("../images/back-stripes-grey.png") repeat scroll 0 0 #fff;
+  cursor: pointer;
+}
+
+.bg-facebook {
+  background-color: #3b5998;
+  background-image: url("../images/fb.svg");
+  background-size: 50% 50%;
+}
+
+.bg-twitter {
+  background-color: #5FA9DD;
+  background-image: url("../images/twitter.svg");
+  background-size: 50% 50%;
+}
+
+.bg-meetup {
+  background-color: $color-white;
+  background-image: url("../images/meetup.gif");
+  background-size: 200px 148px;
+}
+
+.frame-pad {
+  padding: 1.5em;
+}
+
+
+.no-color, .no-color:hover {
+  color: inherit;
+}
+
+.img-frame {
+  border: 3px solid $color-blue-dark;
+}
+// END MODIFIERS
+
+
+// Grid
+/*
+.section-container {
+  @include make-row();
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-one-third {
+  @include make-xs-column(12);
+  @include make-sm-column(6);
+  @include make-md-column(4);
+}
+
+.event {
+  @include make-row();
+
+  .event-date {
+    @include make-xs-column(3);
+  }
+
+  .event-description {
+    @include make-xs-column(9);
+  }
+}
+*/
+
+.stretch-vert {
+  min-height: 100%;
+}
+
+.section-container {
+  @include flexbox;
+  width: 100%;
+
+  @include flex-flow(column);
+
+  .section-single-width,
+  .section-double-width {
+    width: auto;
+    @include order(0);
+  }
+
+  @include breakpoint($screen-tablet) {
+    @include flex-flow(row wrap);
+
+    .section-single-width {
+      @include flex(1 0 16em);
+    }
+
+    .section-double-width {
+      @include flex(2 0 22em);
+    }
+
+    .section-full-width {
+      @include flex(0 0 100%);
+    }
+
+    .section-half-width {
+      @include flex(1 1 50%);
+    }
+  }
+}
+
+.center-content {
+  @include flexbox;
+  @include align-content(center);
+}
+
+.space-content {
+  @include flexbox;
+  @include flex-flow(column);
+
+  > div {
+    @include flex(1 0 50%);
+    min-height: 12em;
+    width: 100%;
+  }
+}
+
+.event {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  @include justify-content(flex-start);
+}
+
+.event-status {
+  @include flex(1 0 100%);
+}
+
+.event-date {
+  margin-right: 3em;
+  @include flex(1);
+}
+
+.event-description {
+  @include flex(3);
+}
+
+
+// End Grid

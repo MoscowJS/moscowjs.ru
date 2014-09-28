@@ -1,0 +1,17 @@
+---
+title: CORS для тестирования и для жизни
+speaker: kojoru
+event: moscowjs-14
+---
+Уже практически все браузеры поддерживают CORS – стандарт, позволяющий
+делать междоменные AJAX-запросы. Даже если обычно необходимости в них нет,
+CORS может упростить тестирование и развёртывание окружения для
+разработчиков. Для API же CORS иногда просто бесценен.
+
+Этот доклад о том, как может помочь CORS и что нужно сделать, чтобы он
+заработал.
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/SgFJJBa0AH8" frameborder="0" allowfullscreen></iframe>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/39153050"
+width="560" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>

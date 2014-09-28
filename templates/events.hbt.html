@@ -1,0 +1,51 @@
+{{> head}}
+<section class="section-double-width">
+
+  <ul>
+    {{#each events}}
+    <a class="no-color"
+      href="/events/{{id}}.html">
+
+      <li class="event event-{{upcomingOrPast}} bg-hoverable">
+        <div class="event-status event-status-{{status}}">
+          {{#ifEq status 'registration'}}
+            регистрация открыта
+          {{/ifEq}}
+
+          {{#ifEq status 'closed'}}
+            регистрация закрыта
+          {{/ifEq}}
+
+          {{#ifEq status 'past'}}
+            прошедшее мероприятие
+          {{/ifEq}}
+        </div>
+
+        <div class="event-date">
+          <div class="event-date-day">{{date.day}}</div>
+          <div class="event-date-month">{{date.month}}</div>
+          <div class="event-date-year">{{date.year}}</div>
+        </div>
+        <div class="event-description">
+          <h4>{{title}}</h4>
+          <ul class="event-talks top-offset">
+            {{#each talks}}
+            <li>
+              <p>
+                {{title}}
+              </p>
+              <p>
+                {{speaker.firstName}}
+                {{speaker.lastName}}{{#if speaker.job}},{{/if}}
+                {{speaker.job}}
+              </p>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+    </a>
+    {{/each}}
+  </ul>
+</section>
+{{> foot}}

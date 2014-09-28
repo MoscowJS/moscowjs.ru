@@ -1,0 +1,40 @@
+{{> head}}
+
+<section class="section-double-width frame-pad">
+  {{#speakers}}
+    <header class="article-header clearfix">
+      {{#if pic}}
+      <img class="userpic pull-right"
+        src="/images/speakers/{{pic}}">
+      {{/if}}
+      <h4 class="article-title">{{firstName}} {{lastName}}</h4>
+      <h5 class="article-sub-title">{{job}}</h5>
+
+      <h4 class="article-title">&nbsp;</h4>
+      {{#each talks}}
+      <article class="article">
+
+        <header class="article-header">
+
+
+          <a class="article-details-link"
+            href="/events/{{event.id}}.html#{{id}}">
+            <p class="article-content">
+              {{event.title}}: {{title}}
+            </p>
+          </a>
+
+        </header>
+
+      </article>
+      {{/each}}
+
+
+    </header>
+
+
+  {{/speakers}}
+
+</section>
+
+{{> foot}}

@@ -1,0 +1,10 @@
+---
+title: CommonJS для браузера
+speaker: shuvalov_anton
+event: moscowjs-15
+---
+
+Об устройстве CommonJS, работе с зависимостями и возможных проблемах, с
+которыми можно столкнуться.
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/39525403" width="560" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>

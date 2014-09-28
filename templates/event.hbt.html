@@ -1,0 +1,35 @@
+{{> head}}
+
+<section class="section-double-width frame-pad">
+  <h1 class="bottom-offset">{{title}}</h1>
+  {{{contents}}}
+
+  {{#each talks}}
+  <article id="{{id}}" class="article">
+
+    <header class="article-header">
+      <a class="article-details-link"
+        href="#{{id}}">
+        <h4 class="article-title">{{title}}</h4>
+      </a>
+      <a class="article-details-link"
+        href="/speakers/{{speaker.id}}.html">
+        <h5 class="article-sub-title">{{speaker.name}}</h5>
+      </a>
+    </header>
+
+    <div class="article-content">
+      {{{contents}}}
+    </div>
+  </article>
+  {{/each}}
+
+  {{#if registrationOpened}}
+  <a class="btn btn-lg btn-success center-block"
+    href="{{registrationLink}}">
+    Зарегистрироваться
+  </a>
+  {{/if}}
+</section>
+
+{{> foot}}
