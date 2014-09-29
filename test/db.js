@@ -27,7 +27,7 @@ describe('db', function () {
 
   describe('.index()', function () {
 
-    it('contains all events in folder', function (done) {
+    it('contains 2 events from folder', function (done) {
       fs.createFileSync('test/content/events/event1');
       fs.createFileSync('test/content/events/event2');
       fs.createFileSync('test/content/events/event3');
@@ -36,10 +36,9 @@ describe('db', function () {
         var data = yield db.index();
 
         assert.ok(data.events);
-        assert.equal(3, data.events.length);
+        assert.equal(2, data.events.length);
         assert.equal('event1', data.events[0].id);
         assert.equal('event2', data.events[1].id);
-        assert.equal('event3', data.events[2].id);
       })(done);
     });
 
