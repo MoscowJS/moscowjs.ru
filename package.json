@@ -4,7 +4,9 @@
   "description": "MoscowJS Meetup official site",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony-generators"
+    "test": "mocha --harmony-generators",
+    "build": "node --harmony-generators $(which gulp) build",
+    "run": "node --harmony-generators $(which gulp) run"
   },
   "author": "filipovsky",
   "license": "MIT",
