@@ -14,7 +14,11 @@
       </a>
       <a class="article-details-link"
         href="/speakers/{{speaker.id}}.html">
-        <h5 class="article-sub-title">{{speaker.name}}</h5>
+        <h5 class="article-sub-title">
+          {{speaker.firstName}}
+          {{speaker.lastName}}{{#if speaker.job}},{{/if}}
+          {{speaker.job}}
+        </h5>
       </a>
     </header>
 
