@@ -14,4 +14,4 @@ event: moscowjs-14
 React.js и БЭМ (i-bem.js и BEMHTML в качестве шаблонизатора) на примере
 разработки реального компонента.
 
-<iframe width="300" height="315" src="//www.youtube.com/embed/64hOVY692QI" frameborder="0" allowfullscreen></iframe>
+<iframe src="//www.youtube.com/embed/64hOVY692QI" frameborder="0" allowfullscreen></iframe>

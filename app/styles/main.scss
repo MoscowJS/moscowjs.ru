@@ -92,6 +92,7 @@ ul {
   list-style: none;
 }
 
+
 .container-full {
   margin: 0 auto;
   width: 100%;
@@ -350,6 +351,12 @@ input.form-control {
 
 .article-content p {
   margin-top: 1em;
+}
+
+
+.article-content iframe {
+  width: 100%;
+  height: 355px;
 }
 
 .article-details-link {
