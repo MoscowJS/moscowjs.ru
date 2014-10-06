@@ -19,10 +19,32 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/main-fe63175d.css">
+        <link rel="stylesheet" href="styles/main-754f0a18.css">
 
         <link rel="stylesheet" type="text/css"
         href="//fonts.googleapis.com/css?family=Open+Sans:700,600,400,300&subset=latin,cyrillic" />
+
+        <!-- Disalbe pointer events on scroll -->
+        <script type="text/javascript">
+          (function() {
+
+            var body = document.body,
+                timer;
+
+            window.addEventListener('scroll', function() {
+              clearTimeout(timer);
+              if(!body.classList.contains('disable-hover')) {
+                body.classList.add('disable-hover')
+              }
+
+              timer = setTimeout(function(){
+                body.classList.remove('disable-hover')
+              },500);
+            }, false);
+
+          })();
+        </script>
+
     </head>
     <body>
         <!--[if lt IE 10]>
