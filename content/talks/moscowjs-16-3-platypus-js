@@ -1,6 +1,12 @@
 ---
-title: "Platypus.js: Enterprise JavaScript Applications"
-speaker: marat-gaynuplin
+title: "Platypus.js — Enterprise контейнер JavaScript"
+speaker: marat-gaynullin
 event: moscowjs-16
+pic: marat-gaynullin.jpg
 ---
+
+
+JavaScript в enterprise приложениях. Настоящая многопоточность. Проблемы
+ORM-ов. Разделение прикладной логики и технологий. Front-end для браузера
+и J2SE. 
 
