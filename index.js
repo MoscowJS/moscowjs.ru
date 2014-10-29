@@ -119,7 +119,9 @@ function gen_stream() {
   GenStream.prototype._read = function () {
     var genStream = this;
     gen(function (err) {
-      if (err) { throw err; }
+      if (err) {
+        throw err;
+      }
       genStream.push(null);
     });
   };
