@@ -149,6 +149,10 @@ h3 {
   padding: 0.4em 0;
 }
 
+h4, h5 {
+  margin-top: 1em;
+}
+
 p {
   font-size: 0.9em;
 }
@@ -336,6 +340,7 @@ input.form-control {
 .article-title {
   font-weight: 600;
   margin-bottom: 0.2em;
+  margin-top: 0;
 }
 
 .article-sub-title {
