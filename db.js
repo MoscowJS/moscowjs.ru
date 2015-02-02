@@ -5,6 +5,7 @@ var co = require('co'),
     frontMatter = require('yaml-front-matter'),
     _ = require('lodash'),
     marked = require('marked'),
+    _dbObj,
     _db;
 
 
@@ -125,6 +126,11 @@ function _attachTalks(talks) {
 _db = function* _db() {
 
   var db = yield codb('content');
+
+  if (_dbObj) {
+    return _dbObj;
+  }
+
   db.use(function* readDoc(doc) {
     var contents = new Buffer(0),
         chunk;
@@ -145,9 +151,7 @@ _db = function* _db() {
     doc.contents = parsed.__content;
   });
 
-  _db = function* _dbCached() {
-    return db;
-  }
+  _dbObj = db;
 
   db.use(function* parseMDContent(doc) {
     doc.contents = marked(doc.contents);
