@@ -12,6 +12,5 @@ registrationLink: 'https://moscowjs.timepad.ru/event/182381/'
 ## Онлайн трансляция
 
 <iframe frameborder="0" height="360px" width="640px" id="epexport_player"
-name="epexport_player" scrolling="no" style="width: 640px; height: 360px;
-"src="http://confluence.streaming.eagleplatform.com/api/player/13777/iframe.html?player_template_id=5794&width=640&height=360">
-</iframe>
+name="epexport_player" scrolling="no" style="width: 640px; height: 360px;"
+src="http://confluence.streaming.eagleplatform.com/api/player/13778/iframe.html?player_template_id=5794&width=640&height=360"></iframe>
