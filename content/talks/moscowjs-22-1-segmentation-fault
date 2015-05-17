@@ -1,0 +1,9 @@
+---
+title: 'Segmentation fault'
+speaker: vecmezoni
+event: moscowjs-22
+---
+
+Попробуем разобраться, как писать нативные модули с поддержкой разных
+версий nodejs и iojs. Как можно полноценно использовать IDE для их
+разработки и отладки. Ключевые слова: nan, nad, node-gyp, cmake.js.
