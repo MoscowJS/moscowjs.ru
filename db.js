@@ -145,7 +145,13 @@ _db = function* _db() {
   db.use(function* parseFrontMatter(doc) {
     var parsed = null;
 
-    parsed = frontMatter.loadFront(doc.contents);
+    try {
+      parsed = frontMatter.loadFront(doc.contents);
+    } catch (e) {
+      console.error('Can\'t parse', doc.path);
+      console.error(e.message);
+      process.exit(1);
+    }
 
     _.extend(doc, parsed);
     doc.contents = parsed.__content;
