@@ -59,6 +59,7 @@ gulp.task('images', function () {
       'app/images/**/*.jpeg',
       'app/images/**/*.png',
       'app/images/**/*.svg',
+      'app/images/**/*.webp'
     ])
       .pipe($.cache($.imagemin({
           optimizationLevel: 3,
