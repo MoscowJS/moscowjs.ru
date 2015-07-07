@@ -37,7 +37,7 @@ $color-red-dark: #bf392b;
 @import 'sass-bootstrap/lib/input-groups';
 @import 'sass-bootstrap/lib/utilities';
 
-@import 'sass-flex-mixin/flex';
+@import 'sass-flex-mixin/flexbox';
 
 @mixin breakpoint($size) {
   @media (min-width: $size) { @content; }
