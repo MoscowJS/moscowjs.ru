@@ -1,0 +1,9 @@
+---
+title: 'HTML5 Cache Manifest на практике'
+speaker: dmitriy-golovin
+event: moscowjs-25
+---
+
+Расскажу и объясню как использовать cache manifest. О том, зачем он вообще
+нужен и чего позволяет добиться. Поведаю об основных проблемах при
+внедрении cache manifest и о том, как их решать.
