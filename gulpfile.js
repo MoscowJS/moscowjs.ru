@@ -2,7 +2,7 @@
 // generated on 2014-09-08 using generator-gulp-webapp 0.1.0
 
 var gulp = require('gulp'),
-    site = require('./index');
+    site = require('./gen');
 
 // load plugins
 var $ = require('gulp-load-plugins')();

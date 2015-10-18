@@ -46,5 +46,7 @@
     "wiredep": "^1.4.3",
     "yaml-front-matter": "~3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "babel": "^5.8.23"
+  }
 }
