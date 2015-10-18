@@ -10,14 +10,18 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "^1.7.7",
+    "babel": "^5.8.23",
     "co": "~3.1.0",
     "co-db": "~0.0.1",
     "co-filter": "0.0.1",
     "co-fs": "~1.2.0",
     "co-stream": "0.0.7",
+    "commonmark": "^0.22.0",
+    "commonmark-helpers": "^0.4.1",
     "connect": "^2.14.4",
     "connect-livereload": "^0.4.0",
     "fs-extra": "~0.11.1",
+    "fs-promise": "^0.3.1",
     "gulp": "^3.6.0",
     "gulp-autoprefixer": "^0.0.7",
     "gulp-bower-files": "^0.2.1",
@@ -38,6 +42,7 @@
     "gulp-uglify": "^0.2.1",
     "gulp-useref": "^1.0.2",
     "handlebars": "~2.0.0",
+    "is-url": "^1.2.1",
     "jshint-stylish": "^0.2.0",
     "lodash": "~2.4.1",
     "marked": "~0.3.2",
@@ -45,8 +50,5 @@
     "proxyquire": "~1.0.1",
     "wiredep": "^1.4.3",
     "yaml-front-matter": "~3.0.1"
-  },
-  "dependencies": {
-    "babel": "^5.8.23"
   }
 }
