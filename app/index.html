@@ -30,10 +30,11 @@
         <script type="text/javascript">
           (function() {
 
-            var body = document.body,
-                timer;
+            var timer;
 
             window.addEventListener('scroll', function() {
+              var body = document.body;
+              
               clearTimeout(timer);
               if(!body.classList.contains('disable-hover')) {
                 body.classList.add('disable-hover')
