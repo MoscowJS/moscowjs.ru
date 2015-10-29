@@ -30,11 +30,10 @@
         <script type="text/javascript">
           (function() {
 
-            var timer;
+            var body = document.body,
+                timer;
 
             window.addEventListener('scroll', function() {
-              var body = document.body;
-              
               clearTimeout(timer);
               if(!body.classList.contains('disable-hover')) {
                 body.classList.add('disable-hover')
@@ -94,13 +93,13 @@
 
             <ul>
               <a class="no-color"
-                  href="https://moscowjs.timepad.ru/event/256386/"
+                  href="/events/moscowjs-26.html"
                 >
 
                 <li class="event event-upcoming bg-hoverable">
-                <div class="event-status event-status-registration">
-                      регистрация открыта
+                <div class="event-status event-status-closed">
 
+                      регистрация закрыта
 
                   </div>
 
