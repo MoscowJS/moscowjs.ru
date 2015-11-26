@@ -1,13 +1,14 @@
 ---
 title: MoscowJS 26
 date:
-  iso: 2015-10-24T29:00:00Z
+  iso: 2015-10-29T23:00:00Z
   day: 29
   month: октября
   year: 2015
 deadline: 2015-10-28T12:00:00Z
 registrationLink: 'https://moscowjs.timepad.ru/event/256386/'
 ---
+<<<<<<< HEAD
 
 
 <iframe src="http://www.ustream.tv/embed/20118313?html5ui&showtitle=false"
@@ -17,3 +18,5 @@ href="http://www.ustream.tv/" style="padding: 2px 0px 4px; width: 400px;
 background: #ffffff ; display: block; color: #000000 ; font-weight:
 normal; font-size: 10px; text-decoration: underline; text-align: center;"
 target="_blank">Live streaming video by Ustream</a>
+=======
+>>>>>>> c0630e0c1d4253c1c79986657a67ecf92ac58afe
