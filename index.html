@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/main-e70cd980.css">
+        <link rel="stylesheet" href="styles/main-a1411ce7.css">
 
         <link rel="stylesheet" type="text/css"
         href="//fonts.googleapis.com/css?family=Open+Sans:700,600,400,300&subset=latin,cyrillic" />
@@ -28,11 +28,13 @@
         <script type="text/javascript">
           (function() {
 
-            var body = document.body,
-                timer;
+            var timer;
 
             window.addEventListener('scroll', function() {
+              var body = document.body;
+
               clearTimeout(timer);
+
               if(!body.classList.contains('disable-hover')) {
                 body.classList.add('disable-hover')
               }
@@ -94,11 +96,11 @@
                   href="/events/moscowjs-27.html"
                 >
 
-                <li class="event event-upcoming bg-hoverable">
-                <div class="event-status event-status-closed">
+                <li class="event event-past bg-hoverable">
+                <div class="event-status event-status-past">
 
-                      регистрация закрыта
 
+                      прошедшее мероприятие
                   </div>
 
                   <div class="event-date">
@@ -312,12 +314,28 @@
               &nbsp;
             </a>
 
-            <section class="section-single-width frame-pad bg-logo">
+            <section class="section-single-width frame-pad bg-logo footer">
               <a class="no-color" href="#">
                 <h1>MoscowJS</h1>
               </a>
-          </div>
 
+              <div>
+                <p>
+                  <a class="no-color underlined"
+                    href="http://ru.confcodeofconduct.com/">
+                    Нормы поведения на конференции
+                  </a>
+                </p>
+
+                <p>
+                  Пишите нам на
+                  <a class="no-color underlined"
+                    href="mailto:team@moscowjs.ru">
+                    team@moscowjs.ru
+                  </a>
+                </p>
+              </div>
+          </div>
         </div>
 
         <script type="text/javascript">
