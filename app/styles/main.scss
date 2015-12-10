@@ -501,6 +501,10 @@ input.form-control {
   color: inherit;
 }
 
+.underlined {
+  text-decoration: underline;
+}
+
 .img-frame {
   border: 3px solid $color-blue-dark;
 }
@@ -604,6 +608,13 @@ input.form-control {
 
 .event-description {
   @include flex(3);
+}
+
+
+.footer {
+  @include flexbox;
+  @include justify-content(space-around);
+  @include flex-direction(column);
 }
 
 
