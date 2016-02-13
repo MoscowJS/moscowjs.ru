@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/main-a1411ce7.css">
+        <link rel="stylesheet" href="styles/main-6e646c41.css">
 
         <link rel="stylesheet" type="text/css"
         href="//fonts.googleapis.com/css?family=Open+Sans:700,600,400,300&subset=latin,cyrillic" />
@@ -243,100 +243,79 @@
             </form>
           </section>
 
-          <div class="bg-green section-container">
-            <section class="frame-pad section-double-width">
-              <h3>Выступить с докладом</h3>
+        </div>
 
-              <form class="talk" role="form">
-                <div class="form-group">
-                  <label for="email">E-mail</label>
-                  <input type="email" class="form-control input-lg"
-                    id="talk-email"
-                    name="email"
-                    placeholder="js@hacker.io"
-                    required>
-                </div>
+        <div class="bg-green section-container">
+          <section class="frame-pad section-single-width">
+            <h3>Докладчикам</h3>
 
-                <div class="form-group">
-                  <label for="talk-topic">Тема доклада</label>
-                  <input type="text" class="form-control input-lg"
-                    id="talk-topic"
-                    name="topic"
-                    placeholder="О чём вы хотели бы рассказать?"
-                    required>
-                </div>
+            <p class="top-offset">
+              Хотите рассказать о своём проекте, поделиться полезной
+              библиотекой или показать 36 гифок с котятами? Мы поможем
+              придумать тему и подготовиться к презентации.
+            </p>
 
-                <div class="form-group">
-                  <label for="talk-duration">
-                    Продолжительность выступления
-                  </label>
-                  <div class="simple-select">
-                    <select id="talk-duration"
-                      class="form-control simple-select input-lg"
-                      name="duration"
-                      required>
-                      <option value="15">15 минут</option>
-                      <option value="30">30 минут</option>
-                      <option value="45">45 минут</option>
-                      <option value="60">1 час</option>
-                      <option value="60+">Больше часа</option>
-                    </select>
-                  </div>
-                </div>
+            <p class="top-offset">
+              <a class="no-color underlined top-offset"
+                href="https://github.com/MoscowJS/speaker#speaker">
+                Стать докладчиком
+              </a>
+            </p>
 
-                <button type="submit" class="btn btn-default btn-lg">
-                  Отправить заявку
-                </button>
-              </form>
+            <p class="thank-you" hidden>
+              Спасибо, записали!
+            </p>
 
-              <p class="thank-you" hidden>
-                Спасибо, записали!
-              </p>
+            <p class="error" hidden>
+              Что-то пошло не так, попробуйте позже&hellip;
+            </p>
 
-              <p class="error" hidden>
-                Что-то пошло не так, попробуйте позже&hellip;
-              </p>
+          </section>
 
-            </section>
-
-            <a class="section-single-width link-section bg-facebook"
-              href="https://www.facebook.com/groups/261688937189348/">
-              &nbsp;
-            </a>
-
-            <a class="section-single-width link-section bg-twitter"
-              href="https://twitter.com/moscowjs">
-              &nbsp;
-            </a>
-
-            <a class="section-single-width link-section bg-meetup"
-              href="http://www.meetup.com/MoscowJS-Meetup/">
-              &nbsp;
-            </a>
-
-            <section class="section-single-width frame-pad bg-logo footer">
-              <a class="no-color" href="#">
-                <h1>MoscowJS</h1>
+          <div class="section-container section-double-width">
+              <a class="section-single-width link-section bg-facebook"
+                href="https://www.facebook.com/groups/261688937189348/">
+                &nbsp;
               </a>
 
-              <div>
-                <p>
-                  <a class="no-color underlined"
-                    href="http://ru.confcodeofconduct.com/">
-                    Нормы поведения на конференции
-                  </a>
-                </p>
-
-                <p>
-                  Пишите нам на
-                  <a class="no-color underlined"
-                    href="mailto:team@moscowjs.ru">
-                    team@moscowjs.ru
-                  </a>
-                </p>
-              </div>
+              <a class="section-single-width link-section bg-twitter"
+                href="https://twitter.com/moscowjs">
+                &nbsp;
+              </a>
           </div>
+
         </div>
+
+        <div class="section-container">
+          <a class="section-single-width link-section bg-meetup"
+            href="http://www.meetup.com/MoscowJS-Meetup/">
+            &nbsp;
+          </a>
+
+          <section class="section-single-width frame-pad bg-logo footer">
+            <a class="no-color" href="#">
+              <h1>MoscowJS</h1>
+            </a>
+
+            <div>
+              <p>
+                <a class="no-color underlined"
+                  href="http://ru.confcodeofconduct.com/">
+                  Нормы поведения на конференции
+                </a>
+              </p>
+
+              <p>
+                Пишите нам на
+                <a class="no-color underlined"
+                  href="mailto:team@moscowjs.ru">
+                  team@moscowjs.ru
+                </a>
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
 
         <script type="text/javascript">
         window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;window.analytics.methods.length>i;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",
@@ -346,7 +325,7 @@
 
         <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>
 
-        <script src="scripts/main-03e0397c.js"></script>
+        <script src="scripts/main-4cce5831.js"></script>
 </body>
 </html>
 
