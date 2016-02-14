@@ -9,6 +9,7 @@
   "author": "filipovsky",
   "license": "MIT",
   "devDependencies": {
+    "bower": "^1.7.7",
     "co": "~3.1.0",
     "co-db": "~0.0.1",
     "co-filter": "0.0.1",
