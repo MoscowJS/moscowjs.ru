@@ -474,16 +474,36 @@ input.form-control {
   cursor: pointer;
 }
 
+.bg-twitter, .bg-facebook {
+  position: relative;
+}
+
+.bg-twitter:after, .bg-facebook:after {
+  content: '';
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .bg-facebook {
   background-color: #3b5998;
+}
+
+.bg-facebook:after {
   background-image: url("../images/fb.svg");
-  background-size: 50% 50%;
 }
 
 .bg-twitter {
   background-color: #5FA9DD;
+}
+
+.bg-twitter:after {
   background-image: url("../images/twitter.svg");
-  background-size: 50% 50%;
 }
 
 .bg-meetup {
