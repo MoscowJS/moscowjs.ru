@@ -17,9 +17,25 @@ async function _registerPartial(name, path) {
 
 
 async function _renderIndex(data) {
-  console.log('xxx data', data);
   const template = await _getTemplate('templates/index.hbt.html');
   return await fs.writeFile('app/index.html', template(data));
+}
+
+
+async function _renderEventPages(data) {
+  const template = await _getTemplate('templates/event.hbt.html');
+
+  return await _.map(data.events, function(event) {
+    console.log('xxx event', event);
+    const pagePath = 'app/events/' + event.id + '.html';
+    return fs.writeFile(pagePath, template(event));
+  });
+}
+
+
+async function _renderEventsPage(data) {
+  const template = await _getTemplate('templates/events.hbt.html');
+  return await fs.writeFile('app/events.html', template(data));
 }
 
 
@@ -45,7 +61,7 @@ async function generatePages() {
 
   await _renderIndex(content);
 
-  // await _renderEventPages();
+  await _renderEventPages(content);
   // await _renderSpeakerPages();
 
   // await _renderEventsPage();

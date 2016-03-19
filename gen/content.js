@@ -2,6 +2,7 @@ import fs from 'fs-promise';
 import md from 'commonmark';
 import mdh from 'commonmark-helpers';
 import isUrl from 'is-url';
+import _ from 'lodash';
 
 import Translit from 'translit';
 import translitRussian from 'translit-russian';
@@ -15,6 +16,18 @@ const MONTH = {
   'сентября': '09'
 }
 
+
+const Parts = {
+  start: 'start',
+  eventName: 'eventName',
+  eventMeta: 'eventMeta',
+  eventData: 'eventData',
+  talkName: 'talkName',
+  talkData: 'talkData',
+  speakerName: 'speakerName',
+  speakerData: 'speakerData'
+};
+
 function padZero(s) {
   if (s.length === 1) {
     return '0' + s;
@@ -24,114 +37,181 @@ function padZero(s) {
 }
 
 
-function extractSpeaker(mdSpeakerNode) {
-  const nameAndJob = mdh.text(mdSpeakerNode);
-  const [name, job] = nameAndJob.split(/\s*\,\s*/g);
-  const names = name.split(/\s+/g);
-  const firstName = names[0];
-  const lastName = names.slice(1).join(' ');
-  const id = translit(names.join(''));
-  const nextNode = mdSpeakerNode.next;
-  let pic;
-
-  if (nextNode && mdh.isImage(nextNode.firstChild)) {
-    pic = nextNode.firstChild.destination;
-  }
-
-  return {
-    id,
-    firstName,
-    lastName,
-    pic,
-    job
-  };
+function isDateNode(node) {
+  const content = mdh.text(node).trim();
+  return DATE_MASK.test(content);
 }
 
 
-function extractSpeakerAndTalk(walker) {
-  const talk = {};
-  let speaker;
+function isUrlNode(node) {
+  const content = mdh.text(node).trim();
+  return isUrl(content)
+}
 
-  let e;
+function isImageNode(node) {
+  const hasOneChild = node.firstChild === node.lastChild;
+  const singleChildIsAnImage = (
+    hasOneChild &&
+    mdh.isImage(node.firstChild)
+  );
 
-  while ((e = walker.next())) {
-    let node = e.node;
+  return mdh.isImage(node) || singleChildIsAnImage;
+}
 
-    if (mdh.isLevel(node, 2)) {
-      talk.title = mdh.text(node);
+
+function extractTextFrom(node, currentPart, event) {
+  if (currentPart === Parts.eventName) {
+    event.title = mdh.html(node);
+    return Parts.eventMeta;
+  }
+
+
+  if (currentPart === Parts.talkName) {
+    let talk = {};
+    talk.title = mdh.text(node);
+    event.talks = event.talks || [];
+    event.talks.push(talk)
+    return Parts.talkData;
+  }
+
+  if (currentPart === Parts.speakerName) {
+    const nameAndJob = mdh.text(node);
+    const [name, job] = nameAndJob.split(/\s*\,\s*/g);
+    const names = name.split(/\s+/g);
+    const firstName = names[0];
+    const lastName = names.slice(1).join(' ');
+    const id = translit(names.join(''));
+
+    const speaker = {
+      firstName,
+      lastName,
+      id,
+      job
+    };
+
+
+    _.last(event.talks).speaker = speaker;
+    event.speakers = event.speakers || [];
+    event.speakers.push(speaker);
+
+    return Parts.speakerData;
+  }
+
+  if (currentPart === Parts.eventMeta) {
+    const content = mdh.text(node).trim();
+
+    if (isDateNode(node)) {
+      const dateMatch = content.match(DATE_MASK);
+      const day = padZero(dateMatch[1]);
+      const monthString = dateMatch[2];
+      const year = dateMatch[3];
+      const monthNumber = MONTH[monthString];
+
+      event.date = {
+        iso: `${year}-${monthNumber}-${day}T23:00:00Z`,
+        day,
+        month: monthString,
+        year
+      }
+      return Parts.eventMeta;
     }
 
-    if (mdh.isLevel(node, 3)) {
-      speaker = extractSpeaker(node);
-      break;
+    if (isUrlNode(node)) {
+      event.registrationLink = content;
+      return Parts.eventMeta;
     }
   }
 
-  return {talk, speaker};
-};
+  return currentPart;
+}
 
+
+function extractContentsFrom(node, currentPart, event) {
+  if (currentPart === Parts.eventData) {
+    event.contents = event.contents || '';
+    event.contents += mdh.html(node);
+    return;
+  }
+
+  if (currentPart === Parts.talkData) {
+    const talk = _.last(event.talks);
+    talk.contents = talk.contents || '';
+    talk.contents += mdh.html(node);
+    return;
+  }
+
+  if (currentPart === Parts.speakerData && !isImageNode(node)) {
+    const speaker = _.last(event.speakers);
+    speaker.contents = speaker.contents || '';
+    speaker.contents += mdh.html(node);
+    return;
+  }
+
+  if (currentPart === Parts.speakerData && isImageNode(node)) {
+    const speaker = _.last(event.speakers);
+    speaker.pic = node.firstChild.destination;
+    return;
+  }
+}
 
 function extractEvent(walker) {
   const event = {};
   const talks = [];
   const speakers = [];
+  let isFirstParagraph = true;
 
   let e;
-  let isMetaFinished = false;
+  let currentPart = Parts.start;
 
   while ((e = walker.next())) {
+    if (!e.entering) continue;
+
     const node = e.node;
 
     if (mdh.isLevel(node, 1)) {
-      event.title = mdh.text(node);
-
-      // skip text node
-      walker.resumeAt(node._next, true);
+      currentPart = Parts.eventName;
+      continue;
     }
 
     if (mdh.isLevel(node, 2)) {
-      isMetaFinished = true;
-      const {talk, speaker} = extractSpeakerAndTalk(walker);
-      talk.speaker = speaker;
-      talks.push(talk);
-      speakers.push(speaker);
-
-      // skip text node
-      walker.resumeAt(node._next, true);
+      currentPart = Parts.talkName;
+      continue;
     }
 
-    if (!isMetaFinished && mdh.isText(node)) {
-      let content = mdh.text(node).trim();
-      let dateMatch = content.match(DATE_MASK);
+    if (mdh.isLevel(node, 3)) {
+      currentPart = Parts.speakerName;
+      continue;
+    }
 
-      if (dateMatch) {
-        let day = padZero(dateMatch[1]);
-        let monthString = dateMatch[2];
-        let year = dateMatch[3];
-        let monthNumber = MONTH[monthString];
+    if (mdh.isText(node)) {
+      currentPart = extractTextFrom(node, currentPart, event);
+      continue;
+    }
 
-        event.date = {
-          iso: `${year}-${monthNumber}-${day}T23:00:00Z`,
-          day,
-          month: monthString,
-          year
-        }
+    if (mdh.isParagraph(node) && isFirstParagraph) {
+      isFirstParagraph = false;
+      continue;
+    }
 
-        continue;
-      }
+    const isEventMeta = currentPart === Parts.eventMeta;
 
-      if (isUrl(content)) {
-        event.registrationLink = content;
-        continue;
-      }
+    // if we're in meta and it's a new paragraph -> we're done with meta
+    if (mdh.isParagraph(node) && !isFirstParagraph && isEventMeta) {
+      currentPart = Parts.eventData;
+      extractContentsFrom(node, currentPart, event);
+      continue;
+    }
+
+
+    if (mdh.isParagraph(node) && !isEventMeta) {
+      extractContentsFrom(node, currentPart, event);
+      continue;
     }
   }
 
-  event.talks = talks;
-
   return {
     event,
-    speakers
+    speakers: event.speakers
   };
 };
 

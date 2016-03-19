@@ -2,6 +2,10 @@
 24 сентября 2015
 https://moscowjs.timepad.ru/event/243456/
 
+Bla bla *blah*.
+
+Tum tum tum.
+
 ## Redux: the best for isomorphic apps
 
 Расскажу, почему Flux и его реализации устарели, как устроена архитектура
