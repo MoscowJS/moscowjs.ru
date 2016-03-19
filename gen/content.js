@@ -31,11 +31,18 @@ function extractSpeaker(mdSpeakerNode) {
   const firstName = names[0];
   const lastName = names.slice(1).join(' ');
   const id = translit(names.join(''));
+  const nextNode = mdSpeakerNode.next;
+  let pic;
+
+  if (nextNode && mdh.isImage(nextNode.firstChild)) {
+    pic = nextNode.firstChild.destination;
+  }
 
   return {
     id,
     firstName,
     lastName,
+    pic,
     job
   };
 }
@@ -73,7 +80,7 @@ function extractEvent(walker) {
   let isMetaFinished = false;
 
   while ((e = walker.next())) {
-    let node = e.node;
+    const node = e.node;
 
     if (mdh.isLevel(node, 1)) {
       event.title = mdh.text(node);
@@ -84,7 +91,8 @@ function extractEvent(walker) {
 
     if (mdh.isLevel(node, 2)) {
       isMetaFinished = true;
-      let {talk, speaker} = extractSpeakerAndTalk(walker);
+      const {talk, speaker} = extractSpeakerAndTalk(walker);
+      talk.speaker = speaker;
       talks.push(talk);
       speakers.push(speaker);
 
@@ -119,14 +127,18 @@ function extractEvent(walker) {
     }
   }
 
-  console.log('event', event);
-  console.log('talks', talks);
-  console.log('speakers', speakers);
+  event.talks = talks;
+
+  return {
+    event,
+    speakers
+  };
 };
 
 async function getContent() {
   const files = await fs.readdir('./events');
-  const events = [];
+  const allEvents = [];
+  let allSpeakers = [];
 
   for (let eventFile of files) {
     if (!FILE_MASK.test(eventFile)) {
@@ -137,15 +149,19 @@ async function getContent() {
     let mdEvent = await fs.readFile(path, 'utf8');
     let mdEventParsed = MD_PARSER.parse(mdEvent);
     let mdEventWalker = mdEventParsed.walker();
-    let event = extractEvent(mdEventWalker);
+    let {event, talks, speakers} = extractEvent(mdEventWalker);
+
+    event.id = eventFile.replace(/\..+$/g, '');
+
+    allEvents.push(event);
+    allSpeakers = allSpeakers.concat(speakers);
   }
 
+  return {
+    events: allEvents,
+    speakers: allSpeakers
+  }
 };
-
-
-getContent().then(function() {}, function(e) {
-  console.error(e);
-});
 
 
 export default getContent;

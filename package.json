@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --harmony-generators",
-    "gen2": "babel-node gen/content.es7.js"
+    "gen2": "babel-node gen/index.es7.js"
   },
   "author": "filipovsky",
   "license": "MIT",
