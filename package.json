@@ -4,7 +4,8 @@
   "description": "MoscowJS Meetup official site",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony-generators"
+    "test": "mocha --harmony-generators",
+    "gen2": "babel-node gen/content.es7.js"
   },
   "author": "filipovsky",
   "license": "MIT",
@@ -50,5 +51,9 @@
     "proxyquire": "~1.0.1",
     "wiredep": "^1.4.3",
     "yaml-front-matter": "~3.0.1"
+  },
+  "dependencies": {
+    "translit": "0.0.1",
+    "translit-russian": "0.0.2"
   }
 }

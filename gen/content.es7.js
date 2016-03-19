@@ -3,6 +3,11 @@ import md from 'commonmark';
 import mdh from 'commonmark-helpers';
 import isUrl from 'is-url';
 
+import Translit from 'translit';
+import translitRussian from 'translit-russian';
+
+const translit = Translit(translitRussian);
+
 const MD_PARSER = new md.Parser();
 const FILE_MASK = /\w+\.md$/;
 const DATE_MASK = /(\d{1,2})\s+(\W+)\s+(\d{4})$/;
@@ -20,7 +25,19 @@ function padZero(s) {
 
 
 function extractSpeaker(mdSpeakerNode) {
-  return {speaker: true};
+  const nameAndJob = mdh.text(mdSpeakerNode);
+  const [name, job] = nameAndJob.split(/\s*\,\s*/g);
+  const names = name.split(/\s+/g);
+  const firstName = names[0];
+  const lastName = names.slice(1).join(' ');
+  const id = translit(names.join(''));
+
+  return {
+    id,
+    firstName,
+    lastName,
+    job
+  };
 }
 
 
