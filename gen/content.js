@@ -11,9 +11,21 @@ const translit = Translit(translitRussian);
 
 const MD_PARSER = new md.Parser();
 const FILE_MASK = /\w+\.md$/;
+const PUNCT_MASK = /[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g;
 const DATE_MASK = /(\d{1,2})\s+(\W+)\s+(\d{4})$/;
 const MONTH = {
-  'сентября': '09'
+  'янв':  '01',
+  'февр': '02',
+  'март': '03',
+  'апр':  '04',
+  'май':  '05',
+  'июнь': '06',
+  'июль': '07',
+  'авг':  '08',
+  'сент': '09',
+  'окт':  '10',
+  'нояб': '11',
+  'дек':  '12'
 }
 
 
@@ -71,6 +83,7 @@ function extractTextFrom(node, currentPart, event) {
     talk.title = mdh.text(node);
     event.talks = event.talks || [];
     event.talks.push(talk)
+    talk.id = event.talks.length;
     return Parts.talkData;
   }
 
@@ -80,7 +93,7 @@ function extractTextFrom(node, currentPart, event) {
     const names = name.split(/\s+/g);
     const firstName = names[0];
     const lastName = names.slice(1).join(' ');
-    const id = translit(names.join(''));
+    const id = translit(names.join('').replace(PUNCT_MASK, ''));
 
     const speaker = {
       firstName,
