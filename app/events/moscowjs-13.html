@@ -18,6 +18,29 @@
 
         <link rel="stylesheet" type="text/css"
         href="//fonts.googleapis.com/css?family=Open+Sans:700,600,400,300&subset=latin,cyrillic" />
+
+
+        <!-- Disalbe pointer events on scroll -->
+        <script type="text/javascript">
+          (function() {
+
+            var body = document.body,
+                timer;
+
+            window.addEventListener('scroll', function() {
+              clearTimeout(timer);
+              if(!body.classList.contains('disable-hover')) {
+                body.classList.add('disable-hover')
+              }
+
+              timer = setTimeout(function(){
+                body.classList.remove('disable-hover')
+              },500);
+            }, false);
+
+          })();
+        </script>
+
     </head>
     <body>
         <!--[if lt IE 10]>
@@ -61,91 +84,103 @@
             </div>
           </section>
 
-<section class="section-double-width frame-pad">
+<section class="section-double-width frame-pad article-content">
   <h1 class="bottom-offset">MoscowJS 13</h1>
   
 
-  <article id="moscowjs-13-around-the-gulp" class="article">
+  <article id="1" class="article">
 
     <header class="article-header">
       <a class="article-details-link"
-        href="#moscowjs-13-around-the-gulp">
+        href="#1">
         <h4 class="article-title">Around the gulp</h4>
       </a>
       <a class="article-details-link"
-        href="/speakers/tenphi.html">
-        <h5 class="article-sub-title"></h5>
+        href="/speakers/.html">
+        <h5 class="article-sub-title">
+          
+          
+          
+        </h5>
       </a>
     </header>
 
     <div class="article-content">
-      <p>История перехода с Grunt на Gulp в крупном проекте. Краткий обзор
-плагинов, решение типовых (и не очень) задач с их помощью.</p>
+      <p>История перехода с Grunt на Gulp в крупном проекте. Краткий обзор плагинов, решение типовых (и не очень) задач с их помощью.</p>
 
     </div>
   </article>
-  <article id="moscowjs-13-para-slov-pro-wamp" class="article">
+  <article id="2" class="article">
 
     <header class="article-header">
       <a class="article-details-link"
-        href="#moscowjs-13-para-slov-pro-wamp">
+        href="#2">
         <h4 class="article-title">Пара слов про WAMP</h4>
       </a>
       <a class="article-details-link"
-        href="/speakers/ksdaemon.html">
-        <h5 class="article-sub-title"></h5>
+        href="/speakers/.html">
+        <h5 class="article-sub-title">
+          
+          
+          
+        </h5>
       </a>
     </header>
 
     <div class="article-content">
-      <p>Небольшой доклад о протоколе WAMP, его устройстве и архитектуре. А так же
-о применении в современных веб-приложениях.</p>
+      <p>Поговорю о классификации клиентских уязвимостей, их типах, возможных
+векторах атак. О том, какие есть основные ошибки в проектировании
+фронт-энд приложений, приводящие к security-багам. Разберу архитектуры
+React в контексте безопасности.</p>
 
     </div>
   </article>
-  <article id="moscowjs-13-razrabotka-mobilnyh-prilozheniy-na-html5-css3-js" class="article">
+  <article id="3" class="article">
 
     <header class="article-header">
       <a class="article-details-link"
-        href="#moscowjs-13-razrabotka-mobilnyh-prilozheniy-na-html5-css3-js">
+        href="#3">
         <h4 class="article-title">Разработка мобильных приложений на HTML5/CSS3/JS</h4>
       </a>
       <a class="article-details-link"
-        href="/speakers/ilya-orlov.html">
-        <h5 class="article-sub-title"></h5>
+        href="/speakers/.html">
+        <h5 class="article-sub-title">
+          
+          
+          
+        </h5>
       </a>
     </header>
 
     <div class="article-content">
-      <p>Как создавать кросс-платформенные native-like приложения для iOS и Android
-c необходимым уровнем быстродействия. Нахождение проблемных мест и
-оптимизация кода.</p>
+      <p>D3 — это не только ценный мех, но и очень полезный View Layer. Научу вас
+работать с D3 за 5 минут. Рендерить D3 на сервере и внутри WebWorkers.
+Расскажу о «новом» дизайн паттерне MALEVICH, созданном специально для D3,
+который может пригодиться как альтернатива Flux.</p>
 
     </div>
   </article>
-  <article id="moscowjs-13-swarm-js-reaktivnaya-sinhronizaciya-dannyh" class="article">
+  <article id="4" class="article">
 
     <header class="article-header">
       <a class="article-details-link"
-        href="#moscowjs-13-swarm-js-reaktivnaya-sinhronizaciya-dannyh">
+        href="#4">
         <h4 class="article-title">Swarm.js — реактивная синхронизация данных</h4>
       </a>
       <a class="article-details-link"
-        href="/speakers/gritzko.html">
-        <h5 class="article-sub-title"></h5>
+        href="/speakers/.html">
+        <h5 class="article-sub-title">
+          
+          
+          
+        </h5>
       </a>
     </header>
 
     <div class="article-content">
-      <p>Такие продвинутые возможности приложения, как обновление данных в реальном
-времени, совместная работа, оффлайн, кэширование и handover/continuity
-упираются в одну проблему — синхронизацию реплик данных.</p>
-<p>Наша смелая мечта — писать такие распределённые приложения, как простое
-MVC, работая лишь с локальной репликой модели и делегировав синхронизацию
-специальному middleware.</p>
-<p>В докладе я расскажу, что такое CRDT и как библиотека Swarm.js позволяет
-строить реактивные архитектуры, реализующие все эти возможности (с
-демонстрацией).</p>
+      <p>Такие продвинутые возможности приложения, как обновление данных в реальном времени, совместная работа, оффлайн, кэширование и handover/continuity упираются в одну проблему — синхронизацию реплик данных.</p>
+<p>Наша смелая мечта — писать такие распределённые приложения, как простое MVC, работая лишь с локальной репликой модели и делегировав синхронизацию специальному middleware.</p>
+<p>В докладе я расскажу, что такое CRDT и как библиотека Swarm.js позволяет строить реактивные архитектуры, реализующие все эти возможности (с демонстрацией).</p>
 
     </div>
   </article>
@@ -186,8 +221,8 @@ MVC, работая лишь с локальной репликой модели
         <script src="//www.parsecdn.com/js/parse-1.2.17.min.js"></script>
 
         <!-- build:js({app,.tmp}) /scripts/main.js -->
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="scripts/main.js"></script>
+        <script src="/bower_components/jquery/jquery.js"></script>
+        <script src="/scripts/main.js"></script>
         <!-- endbuild -->
 </body>
 </html>
