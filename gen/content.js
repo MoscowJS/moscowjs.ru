@@ -251,13 +251,37 @@ async function getContent() {
     let mdEvent = await fs.readFile(path, 'utf8');
     let mdEventParsed = MD_PARSER.parse(mdEvent);
     let mdEventWalker = mdEventParsed.walker();
-    let {event, talks, speakers} = extractEvent(mdEventWalker);
+    let {event, speakers} = extractEvent(mdEventWalker);
 
     event.id = eventFile.replace(/\..+$/g, '');
+    event.talks.forEach(talk => talk.event = event);
 
     allEvents.push(event);
-    allSpeakers = allSpeakers.concat(speakers);
+
+    if (speakers) {
+      allSpeakers = allSpeakers.concat(speakers);
+    }
   }
+
+  allEvents.sort((e1, e2) => {
+    return new Date(e2) - new Date(e1);
+  });
+
+  const talksBySpeaker = allEvents.reduce((acc, ev) => {
+    return ev.talks.reduce((acc, talk) => {
+      if (!talk.speaker) {
+        return acc;
+      }
+
+      const speakerId = talk.speaker.id;
+      acc[speakerId] = acc[speakerId] || [];
+      acc[speakerId].push(talk);
+      return acc;
+    }, acc);
+  }, {});
+
+  allSpeakers = _.uniq(allSpeakers, s => s.id);
+  allSpeakers.forEach(s => s.talks = talksBySpeaker[s.id] || []);
 
   return {
     events: allEvents,

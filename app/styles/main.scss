@@ -184,6 +184,10 @@ figcaption {
   margin-top: .5em;
 }
 
+.no-top-offset {
+  margin-top: 0;
+}
+
 .bottom-offset {
   margin-bottom: 1em;
 }
@@ -358,6 +362,9 @@ input.form-control {
   margin-top: 1em;
 }
 
+.article-content p.no-top-offset {
+  margin-top: 0;
+}
 
 .article-content iframe {
   width: 100%;

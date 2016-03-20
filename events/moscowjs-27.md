@@ -9,8 +9,9 @@
 
 ![Pavel Tiunov](/images/speakers/tiunov.png)
 
-* [facebook](https://www.facebook.com/pavel.tiunov87)
-* GitHub: [paveltiunov](https://github.com/paveltiunov)
+[facebook](https://www.facebook.com/pavel.tiunov87)
+
+GitHub: [paveltiunov](https://github.com/paveltiunov)
 
 ## Пуленепробиваемая валидация форм в React
 

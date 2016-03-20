@@ -25,10 +25,10 @@ async function _renderIndex(data) {
 async function _renderEventPages(data) {
   const template = await _getTemplate('templates/event.hbt.html');
 
-  return await _.map(data.events, function(event) {
+  return await Promise.all(_.map(data.events, function(event) {
     const pagePath = 'app/events/' + event.id + '.html';
     return fs.writeFile(pagePath, template(event));
-  });
+  }));
 }
 
 
@@ -41,10 +41,10 @@ async function _renderEventsPage(data) {
 async function _renderSpeakerPages({speakers}) {
   const template = await _getTemplate('templates/speaker.hbt.html');
 
-  return await _.map(speakers, (speaker) => {
+  return await Promise.all(_.map(speakers, (speaker) => {
     const pagePath = `app/speakers/${speaker.id}.html`;
     return fs.writeFile(pagePath, template(speaker));
-  });
+  }));
 };
 
 
@@ -71,18 +71,18 @@ async function generatePages() {
     return '';
   });
 
-  await [
+  await Promise.all([
     _registerPartial('head', 'templates/partials/head.hbt.html'),
     _registerPartial('foot', 'templates/partials/foot.hbt.html')
-  ];
+  ]);
 
-  await [
+  await Promise.all([
     _renderIndex(content),
     _renderEventPages(content),
     _renderSpeakerPages(content),
     _renderEventsPage(content),
     _renderSpeakersPage(content)
-  ];
+  ]);
 }
 
 export default generatePages;

@@ -1,7 +1,15 @@
 {{> head}}
 
 <section class="section-double-width frame-pad article-content">
-  <h1 class="bottom-offset">{{title}}</h1>
+  <h1>{{title}}</h1>
+  {{#if date}}
+  <p class="no-top-offset bottom-offset">
+    {{date.day}}
+    {{date.month}}
+    {{date.year}}г.
+  </p>
+  {{/if}}
+
   {{{contents}}}
 
   {{#each talks}}
