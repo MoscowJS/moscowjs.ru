@@ -1,5 +1,6 @@
 # MoscowJS 29
 31 марта 2016
+https://moscowjs.timepad.ru/event/308175/
 
 ## Observable и computed на примере KnockoutJS
 

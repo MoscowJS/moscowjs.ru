@@ -96,15 +96,15 @@
             <ul>
               {{#each events}}
               <a class="no-color"
-                {{#ifEq status 'registration'}}
+                {{#ifEq status 'upcoming'}}
                   href="{{registrationLink}}"
                 {{/ifEq}}
-                {{#ifNEq status 'registration'}}
+                {{#ifNEq status 'upcoming'}}
                   href="/events/{{id}}.html"
                 {{/ifNEq}}
                 >
 
-                <li class="event event-{{upcomingOrPast}} bg-hoverable">
+                <li class="event event-{{status}} bg-hoverable">
                 <div class="event-status event-status-{{status}}">
                     {{#ifEq status 'upcoming'}}
                       следующий митап

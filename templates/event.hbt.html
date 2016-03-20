@@ -36,12 +36,12 @@
   </article>
   {{/each}}
 
-  {{#if registrationOpened}}
+  {{#ifEq status 'upcoming'}}
   <a class="btn btn-lg btn-success center-block"
     href="{{registrationLink}}">
     Зарегистрироваться
   </a>
-  {{/if}}
+  {{/ifEq}}
 </section>
 
 {{> foot}}

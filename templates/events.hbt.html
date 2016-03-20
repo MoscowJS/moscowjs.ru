@@ -6,19 +6,15 @@
     <a class="no-color"
       href="/events/{{id}}.html">
 
-      <li class="event event-{{upcomingOrPast}} bg-hoverable">
+      <li class="event event-{{status}} bg-hoverable">
         <div class="event-status event-status-{{status}}">
-          {{#ifEq status 'registration'}}
-            регистрация открыта
-          {{/ifEq}}
+            {{#ifEq status 'upcoming'}}
+              следующий митап
+            {{/ifEq}}
 
-          {{#ifEq status 'closed'}}
-            регистрация закрыта
-          {{/ifEq}}
-
-          {{#ifEq status 'past'}}
-            прошедшее мероприятие
-          {{/ifEq}}
+            {{#ifEq status 'past'}}
+              прошедшее мероприятие
+            {{/ifEq}}
         </div>
 
         <div class="event-date">
