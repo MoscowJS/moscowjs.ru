@@ -20,7 +20,7 @@ Twitter: [@tenphi](https://twitter.com/tenphi)
 
 ### Денис Глазков
 
-![Denis Glazkov](/images/denisskin.jpg)
+![Denis Glazkov](/images/speakers/denisskin.jpg)
 
 GitHub: [@denisskin](https://github.com/denisskin/)
 
@@ -33,7 +33,7 @@ ES7 (ECMAScript 2016). Декораторы – одна из этих фич. �
 
 ### Александр Майоров, Tutu.ru
 
-![Aleksandr Mayorov](/images/frontdevops.jpg)
+![Aleksandr Mayorov](/images/speakers/frontdevops.jpg)
 
 [majorov.su](http://majorov.su)
 
@@ -49,7 +49,7 @@ Write once, use everywhere. Все мы прекрасно знаем, что э
 
 ### Алексей Охрименко, IPONWEB
 
-![Aleksey Okhrimenko](/images/аi_boy.jpg)
+![Aleksey Okhrimenko](/images/speakers/ai_boy.jpg)
 
 Twitter: [@Ai_boy](https://twitter.com/Ai_boy)
 

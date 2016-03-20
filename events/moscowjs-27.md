@@ -19,7 +19,7 @@ GitHub: [paveltiunov](https://github.com/paveltiunov)
 
 ### Антон Кузнецов, Action Digital
 
-![Anton Kuznetsov](/images/isnifer.jpg)
+![Anton Kuznetsov](/images/speakers/isnifer.jpg)
 
 Twitter: [@iSnifer](http://twitter.com/iSnifer)
 
@@ -33,7 +33,7 @@ GitHub: [isnifer](https://github.com/isnifer)
 
 ### Антон Виноградов, CEO The Protein Corp
 
-![Anton Winogradov](/images/winogradov.jpg)
+![Anton Winogradov](/images/speakers/winogradov.jpg)
 
 Twitter: [@awinogradov](http://twitter.com/awinogradov)
 
@@ -43,7 +43,7 @@ Twitter: [@awinogradov](http://twitter.com/awinogradov)
 
 ### Анатолий Найда, Andiks LTD
 
-![Anatoliy Naida](/images/naida.png)
+![Anatoliy Naida](/images/speakers/naida.png)
 
 Twitter: [@vecmezoni](https://twitter.com/anatoliy92)
 

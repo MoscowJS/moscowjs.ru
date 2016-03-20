@@ -239,7 +239,7 @@ function extractEvent(walker) {
 
 async function getContent() {
   const files = await fs.readdir('./events');
-  const allEvents = [];
+  let allEvents = [];
   let allSpeakers = [];
 
   for (let eventFile of files) {
@@ -263,8 +263,8 @@ async function getContent() {
     }
   }
 
-  allEvents.sort((e1, e2) => {
-    return new Date(e2) - new Date(e1);
+  allEvents = allEvents.sort((e1, e2) => {
+    return new Date(e2.date.iso) - new Date(e1.date.iso);
   });
 
   const talksBySpeaker = allEvents.reduce((acc, ev) => {

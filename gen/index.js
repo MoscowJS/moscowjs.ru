@@ -17,6 +17,7 @@ async function _registerPartial(name, path) {
 
 
 async function _renderIndex(data) {
+  data = {...data, events: data.events.slice(0, 2)};
   const template = await _getTemplate('templates/index.hbt.html');
   return await fs.writeFile('app/index.html', template(data));
 }
