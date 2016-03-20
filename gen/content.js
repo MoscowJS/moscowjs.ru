@@ -238,7 +238,7 @@ function extractEvent(walker) {
 };
 
 async function getContent() {
-  const files = await fs.readdir('./events');
+  const files = await fs.readdir('./content/events');
   let allEvents = [];
   let allSpeakers = [];
 
@@ -247,7 +247,7 @@ async function getContent() {
       continue;
     }
 
-    let path = './events/' + eventFile;
+    let path = './content/events/' + eventFile;
     let mdEvent = await fs.readFile(path, 'utf8');
     let mdEventParsed = MD_PARSER.parse(mdEvent);
     let mdEventWalker = mdEventParsed.walker();
