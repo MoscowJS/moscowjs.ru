@@ -3,8 +3,6 @@
 Site of MoscowJS, JavaScript meetup group in Moscow.
 
 
-Built on top of [co-db][co-db].
-
 ## Install
 
 ```bash
