@@ -89,7 +89,7 @@ function extractTextFrom(node, currentPart, event) {
 
   if (currentPart === Parts.speakerName) {
     const nameAndJob = mdh.text(node);
-    const [name, job] = nameAndJob.split(/\s*\,\s*/g);
+    const [name, job] = nameAndJob.split(/\s*\,\s*/);
     const names = name.split(/\s+/g);
     const firstName = names[0];
     const lastName = names.slice(1).join(' ');
