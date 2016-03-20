@@ -14,19 +14,19 @@ const FILE_MASK = /\w+\.md$/;
 const PUNCT_MASK = /[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g;
 const DATE_MASK = /(\d{1,2})\s+(\W+)\s+(\d{4})$/;
 const MONTH = {
-  'янв':  '01',
-  'февр': '02',
-  'март': '03',
-  'апр':  '04',
-  'май':  '05',
-  'июнь': '06',
-  'июль': '07',
-  'авг':  '08',
-  'сент': '09',
-  'окт':  '10',
-  'нояб': '11',
-  'дек':  '12'
-}
+  'января':   '01',
+  'февраля':  '02',
+  'марта':    '03',
+  'апреля':   '04',
+  'мая':      '05',
+  'июня':     '06',
+  'июля':     '07',
+  'августа':  '08',
+  'сентября': '09',
+  'октября':  '10',
+  'ноября':   '11',
+  'декабря':  '12'
+};
 
 
 const Parts = {
@@ -126,6 +126,15 @@ function extractTextFrom(node, currentPart, event) {
         month: monthString,
         year
       }
+      const isUpcoming = Date.now() < new Date(event.date.iso);
+
+      if (isUpcoming) {
+        event.status = 'upcoming';
+      } else {
+        event.status = 'past';
+      }
+
+
       return Parts.eventMeta;
     }
 

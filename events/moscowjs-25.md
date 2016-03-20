@@ -1,5 +1,5 @@
 # MoscowJS 25
-24 сентября 2015
+24 сентября 2016
 https://moscowjs.timepad.ru/event/243456/
 
 Bla bla *blah*.

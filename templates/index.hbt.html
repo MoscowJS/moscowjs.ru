@@ -106,12 +106,8 @@
 
                 <li class="event event-{{upcomingOrPast}} bg-hoverable">
                 <div class="event-status event-status-{{status}}">
-                    {{#ifEq status 'registration'}}
-                      регистрация открыта
-                    {{/ifEq}}
-
-                    {{#ifEq status 'closed'}}
-                      регистрация закрыта
+                    {{#ifEq status 'upcoming'}}
+                      следующий митап
                     {{/ifEq}}
 
                     {{#ifEq status 'past'}}
