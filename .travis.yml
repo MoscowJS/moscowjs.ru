@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-  "4.2"
+  - "4.2"
 before_script:
   - npm install -g gulp bower
+  - bower install
 script: gulp build
 after_success:
   - eval "$(ssh-agent -s)"
@@ -14,6 +15,6 @@ after_success:
 
   - chmod 600 id_rsa
   - ssh-add id_rsa
-  - rsync dist/ travis@moscowjs.ru
+  - rsync "dist/" "travis@moscowjs.ru:moscowjs.ru"
 
 
