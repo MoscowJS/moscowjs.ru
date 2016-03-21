@@ -3,6 +3,7 @@ node_js:
   - "4.2"
 before_script:
   - npm install -g gulp bower
+  - gem install compass
   - bower install
 script: gulp build
 after_success:
