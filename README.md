@@ -2,6 +2,12 @@
 
 Site of MoscowJS, JavaScript meetup group in Moscow.
 
+## Submit a talk
+
+Please check [speaker's instructions](https://github.com/MoscowJS/speaker) first.
+
+If you'd like to submit your talk in a form of a PR, check
+[content/events](content/events) folder.
 
 ## Install
 
