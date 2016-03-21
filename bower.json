@@ -4,7 +4,7 @@
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
     "jquery": "~1.10.2",
-    "sass-flex-mixin": "git@github.com:mastastealth/sass-flex-mixin.git"
+    "sass-flex-mixin": "1.0.1"
   },
   "devDependencies": {}
 }
