@@ -1,5 +1,7 @@
 # moscowjs.ru
 
+![Build Status](https://api.travis-ci.org/MoscowJS/moscowjs.ru.svg)
+
 Site of MoscowJS, JavaScript meetup group in Moscow.
 
 ## Submit a talk
