@@ -13,7 +13,7 @@ after_success:
       -K $encrypted_bfd1bf5b1575_key
       -iv $encrypted_bfd1bf5b1575_iv
       -in id_rsa.enc -out id_rsa -d
-
+  - cat moscowjs.host > ~/.ssh/known_hosts
   - chmod 600 id_rsa
   - ssh-add id_rsa
   - rsync "dist/" "travis@moscowjs.ru:moscowjs.ru"
