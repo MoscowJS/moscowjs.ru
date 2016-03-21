@@ -4,8 +4,9 @@
   "description": "MoscowJS Meetup official site",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony-generators",
-    "gen2": "babel-node gen/index.es7.js"
+    "start": "gulp watch",
+    "build": "gulp build",
+    "imagemin": "gulp imagemin"
   },
   "author": "filipovsky",
   "license": "MIT",
