@@ -216,19 +216,24 @@ function extractEvent(walker) {
     }
 
     const isEventMeta = currentPart === Parts.eventMeta;
+    const isParagraphOrHtml = (
+      mdh.isParagraph(node) || mdh.isHtmlBlock(node)
+    );
+
 
     // if we're in meta and it's a new paragraph -> we're done with meta
-    if (mdh.isParagraph(node) && !isFirstParagraph && isEventMeta) {
+    if (isParagraphOrHtml && !isFirstParagraph && isEventMeta) {
       currentPart = Parts.eventData;
       extractContentsFrom(node, currentPart, event);
       continue;
     }
 
 
-    if (mdh.isParagraph(node) && !isEventMeta) {
+    if (isParagraphOrHtml && !isEventMeta) {
       extractContentsFrom(node, currentPart, event);
       continue;
     }
+
   }
 
   return {
@@ -256,6 +261,7 @@ async function getContent() {
     event.id = eventFile.replace(/\..+$/g, '');
     event.talks.forEach(talk => talk.event = event);
 
+    console.log('xxx event', event.contents);
     allEvents.push(event);
 
     if (speakers) {

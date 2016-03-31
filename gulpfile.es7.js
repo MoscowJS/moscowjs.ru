@@ -117,7 +117,6 @@ gulp.task('connect', ['gen'], function () {
     var connect = require('connect');
     var app = connect()
         .use(require('connect-livereload')({ port: 35729 }))
-        .use(connect.static('dist'))
         .use(connect.static('.tmp'))
         .use('/images', connect.static('images'));
 

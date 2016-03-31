@@ -2,6 +2,10 @@
 31 марта 2016
 https://moscowjs.timepad.ru/event/308175/
 
+<iframe frameborder="0" height="360px"
+src="http://confluence.streaming.eagleplatform.com/export/translations/18417?player_template_id=5794"
+allowfullscreen></iframe>
+
 ## Observable и computed на примере KnockoutJS
 
 Хочу рассказать об абстракции observable, computed в knockout.js, показать её применение на практической задаче, а также погрузится вглубь реализации knockout.js
