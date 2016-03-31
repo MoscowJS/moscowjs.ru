@@ -261,7 +261,6 @@ async function getContent() {
     event.id = eventFile.replace(/\..+$/g, '');
     event.talks.forEach(talk => talk.event = event);
 
-    console.log('xxx event', event.contents);
     allEvents.push(event);
 
     if (speakers) {
