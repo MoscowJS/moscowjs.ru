@@ -40,6 +40,7 @@ async function _renderEventPages(data) {
 
 
 async function _renderEventsPage(data) {
+  data = {...data, title: 'События'};
   const template = await _getTemplate('templates/events.hbt.html');
   return fs.writeFile('.tmp/events.html', template(data));
 }
@@ -58,7 +59,7 @@ async function _renderSpeakerPages({speakers}) {
 
 async function _renderSpeakersPage({speakers}) {
   const template = await _getTemplate('templates/speakers.hbt.html');
-  return fs.writeFile('.tmp/speakers.html', template({speakers}));
+  return fs.writeFile('.tmp/speakers.html', template({speakers, title: 'Люди'}));
 };
 
 

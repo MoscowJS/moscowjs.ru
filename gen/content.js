@@ -94,13 +94,16 @@ function extractTextFrom(node, currentPart, event) {
     const firstName = names[0];
     const lastName = names.slice(1).join(' ');
     const id = translit(names.join('').replace(PUNCT_MASK, ''));
+    const title = `${firstName} ${lastName}`;
 
     const speaker = {
       firstName,
       lastName,
       id,
-      job
+      job,
+      title
     };
+
 
 
     _.last(event.talks).speaker = speaker;
