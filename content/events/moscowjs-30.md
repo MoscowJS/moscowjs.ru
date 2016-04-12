@@ -10,4 +10,4 @@
 ![Вадим Макеев](/images/speakers/pepelsbey.jpg)
 
 Twitter: [@pepelsbey](https://twitter.com/pepelsbey)
-GitHub: [@pepelsbey](https://twitter.com/pepelsbey)
+GitHub: [@pepelsbey](https://github.com/pepelsbey)
