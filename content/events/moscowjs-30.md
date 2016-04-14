@@ -23,4 +23,14 @@ GitHub: [@vslinko](https://github.com/vslinko)
 
 Twitter: [@pepelsbey](https://twitter.com/pepelsbey)
 GitHub: [@pepelsbey](https://github.com/pepelsbey)
->>>>>>> 72b345e96ab6bc8aaba48a26d9eaa51a99c91429
+
+## Быстрее, выше, сильнее в современной архитектуре
+
+Расскажу про опыт построения SPA с использованием современных технологий (react, redux, express). Акцент будет сделан на том, как выбранный стек помог повысить эффективность работы команды, а также работы над проектом в целом. В связи с этим расскажу про архитектуру приложения, какие нам видятся плюсы, а также сложности, с которыми успели столкнуться.
+
+###  Копылов Егор, Яндекс
+
+![Egor Kopylov](/images/speakers/iegit.jpg)
+
+Github: [@iegit](https://github.com/iegit)
+mail: koegit@gmail.com
