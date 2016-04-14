@@ -1,4 +1,5 @@
 # MoscowJS 30
+28 апреля 2016
 
 ## Введение в GraphQL и Relay
 
