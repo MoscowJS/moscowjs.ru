@@ -1,5 +1,6 @@
 # MoscowJS 30
 28 апреля 2016
+https://moscowjs.timepad.ru/event/319352/
 
 ## Введение в GraphQL и Relay
 
