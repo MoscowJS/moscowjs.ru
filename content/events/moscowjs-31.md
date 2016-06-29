@@ -17,7 +17,7 @@ GitHub: [@mdunaev](https://github.com/mdunaev)
 
 ### Николай Надоричев, Сбербанк-Технологии
 
-![Николай Надоричев](/images/speakers/luanre.jpg)
+![Николай Надоричев](/images/speakers/luanre.jpeg)
 
 Twitter: [@luanre](https://twitter.com/Luanre)
 GitHub: [@luanre](https://github.com/luanre)
