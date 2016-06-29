@@ -22,15 +22,15 @@ GitHub: [@mdunaev](https://github.com/mdunaev)
 Twitter: [@luanre](https://twitter.com/Luanre)
 GitHub: [@luanre](https://github.com/luanre)
 
-## Собираем NPM пакеты с TypeScript
+## Верстка Canvas'ом
 
-В этом докладе мы обсудим процесс организации разработки NPM пакетов написанных на TypeScript, вараинты их сборки для использования в приложениях с TypeScript и без, а так же организацию работы с Typings зависимостями.
+Зачем? Как и когда нужно создавать пользовательский интерфейс с помощью Canvas и как обогнать React Native - обо всем этом вы узнаете из этого доклада.
 
-### Артур Бир, Dr.Head
+### Алексей Охрименко, IPONWEB
 
-![Артур Бир](/images/speakers/barthur.jpg)
+![Алексей Охрименко](/images/speakers/ai_boy.jpg)
 
-Github: [@izatop](https://github.com/izatop)
+Github: [@aiboy](https://github.com/aiboy)
 
 ## Angular2 Change Detection
 
