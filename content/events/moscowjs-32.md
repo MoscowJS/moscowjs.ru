@@ -16,7 +16,7 @@ https://events.yandex.ru/events/yagosti/28-july-2016/
 
 ###  Иван Стрелков, Avito
 
-![Иван Стрелков](/images/speakers/iv-strelkov.jpeg)
+![Иван Стрелков](/images/speakers/iv-strelkov.jpg)
 
 Twitter: [@i_strel](https://twitter.com/i_strel)
 GitHub: [@istrel](https://github.com/istrel)
