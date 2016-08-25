@@ -2,6 +2,10 @@
 25 августа 2016
 https://moscowjs.timepad.ru/event/363568/
 
+<iframe frameborder="0" height="360px" 
+src="http://confluence.streaming.eagleplatform.com/export/translations/18953?player_template_id=5794" 
+allowfullscreen></iframe>
+
 ## I promise — images will be loaded!
 
 На протяжении веков люди брали и загружали картинки. Оказывается, они делали это не правильно — максимум LazyLoad. И без промисов.
