@@ -44,7 +44,7 @@
     "gulp-size": "^0.3.0",
     "gulp-uglify": "^0.2.1",
     "gulp-useref": "^1.0.2",
-    "handlebars": "~2.0.0",
+    "handlebars": "~4.5.3",
     "is-url": "^1.2.1",
     "jshint-stylish": "^0.2.0",
     "lodash": "~2.4.1",
